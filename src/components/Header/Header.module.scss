@@ -8,9 +8,9 @@
   }
   .ul {
     @apply md:flex justify-between items-center max-w-[360px] flex-1 px-5 hidden;
-    // .li {
-    //   @apply
-    // }
+    .li {
+      @apply hover:border-b border-black;
+    }
   }
   .wrappInput {
     @apply relative max-w-[260px] mx-3 flex-1;

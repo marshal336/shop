@@ -4,12 +4,14 @@ import React from "react";
 import Link from "next/link";
 import styles from "./Header.module.scss";
 import { List } from "./list";
-import { Menu, Search, X } from "lucide-react";
+import { Heart, Menu, Search, ShoppingCart, User, X } from "lucide-react";
+import DropDown from "./DropDown";
 
 const Header = () => {
+  const isLogin = true;
   const [value, setValue] = React.useState("");
   const [menu, setMenu] = React.useState(false);
-  
+
   return (
     <header className={styles.header}>
       <div className={styles.separator} />
@@ -20,38 +22,63 @@ const Header = () => {
             alt="logo"
             width={118}
             height={24}
-            className="max-xs:w-[50px]"
+            className="xs:block hidden"
           />
         </div>
         <ul className={styles.ul}>
           {List.map(({ link, title }, i) => (
-            <li className={styles.li}>
+            <li className={styles.li} key={i}>
               <Link href={link}>{title}</Link>
             </li>
           ))}
         </ul>
-        <div className={styles.wrappInput}>
-          <input
-            onChange={(e) => setValue(e.target.value)}
-            value={value}
-            placeholder="What are you looking for?"
-            className={styles.input}
-          />
-          <Search
-            className={`absolute top-[8px] right-[10px] cursor-pointer ${
-              value && "right-[44px]"
-            }`}
-          />
-          {value && (
-            <X
-              className={"absolute top-[8px] right-[9px] cursor-pointer"}
-              onClick={() => setValue("")}
+        <div className="flex items-center gap-4">
+          <div className={styles.wrappInput}>
+            <input
+              onChange={(e) => setValue(e.target.value)}
+              value={value}
+              placeholder="What are you looking for?"
+              className={styles.input}
             />
-          )}
+            <Search
+              className={`absolute top-[8px] right-[10px] cursor-pointer ${
+                value && "right-[44px]"
+              }`}
+            />
+            {value && (
+              <X
+                className={"absolute top-[8px] right-[9px] cursor-pointer"}
+                onClick={() => setValue("")}
+              />
+            )}
+          </div>
+          <div className="flex gap-4 ">
+            <Link href={"/favorite"} className="relative">
+              <Heart />
+              <p className="absolute top-[-5px] right-[-3px] bg-red-600 py-[1px] px-[5px] text-white text-xs rounded-full">
+                0
+              </p>
+            </Link>
+            <Link href={"/basket"} className="relative">
+              <ShoppingCart />
+              <p className="absolute top-[-5px] right-[-3px] bg-red-600 py-[1px] px-[5px] text-white text-xs rounded-full">
+                0
+              </p>
+            </Link>
+            {isLogin && (
+              <Link href={"/profile"}>
+                <User />
+              </Link>
+            )}
+          </div>
         </div>
-        <div className="md:hidden block" onClick={() => setMenu(!menu)}>
+        <div
+          className="md:hidden block ml-6 md:m-0"
+          onClick={() => setMenu(!menu)}
+        >
           {menu ? <X /> : <Menu />}
         </div>
+        <DropDown items={List} isValid={menu} />
       </div>
     </header>
   );
