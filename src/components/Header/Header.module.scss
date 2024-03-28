@@ -1,0 +1,21 @@
+.header {
+  @apply w-full relative md:pt-[47px] md:pb-[24px] pt-[25px] pb-[20px];
+  .separator {
+    @apply w-full h-[1px] bg-black absolute bottom-0;
+  }
+  .container {
+    @apply max-w-[1170px] mx-auto flex justify-between items-center px-5;
+  }
+  .ul {
+    @apply md:flex justify-between items-center max-w-[360px] flex-1 px-5 hidden;
+    // .li {
+    //   @apply
+    // }
+  }
+  .wrappInput {
+    @apply relative max-w-[260px] mx-3 flex-1;
+    .input {
+      @apply bg-[#f5f5f5] py-2 pl-5 pr-9 rounded w-full placeholder:text-xs outline-none;
+    }
+  }
+}
