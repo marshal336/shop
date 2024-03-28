@@ -1,0 +1,42 @@
+.footer {
+  @apply w-full bg-black mt-auto text-white pt-20;
+  .container {
+    @apply max-w-[1170px] mx-auto grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 xmd:grid-cols-4 lg:grid-cols-5 gap-y-7 xs:gap-y-5 lg:gap-0 xs:justify-items-start xmd:justify-items-center px-5 pb-14;
+    .one {
+      @apply flex flex-col gap-6 max-w-[217px];
+      .h1{
+        @apply text-2xl font-bold
+      }
+      .h2{
+        @apply text-xl font-medium
+      }
+      .p {
+        @apply text-base font-normal
+      }
+      .input{
+        @apply text-base py-3 bg-transparent border border-white rounded px-4 outline-none
+      }
+      .icon {
+        @apply absolute top-[12px] right-2 cursor-pointer
+      }
+    }
+    .two {
+      @apply flex flex-col max-w-[198px];
+      .h1 {
+        @apply text-xl font-medium pb-6;
+      }
+      .p {
+        @apply text-xs opacity-70 pb-2;
+      }
+    }
+    .logos {
+      @apply flex justify-between pb-6;
+    }
+    .icons {
+      @apply flex justify-between items-center;
+    }
+  }
+  .bottomFooter {
+    @apply relative pt-4 pb-6;
+  }
+}

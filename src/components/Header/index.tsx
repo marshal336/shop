@@ -8,14 +8,18 @@ import { Heart, Menu, Search, ShoppingCart, User, X } from "lucide-react";
 import DropDown from "./DropDown";
 
 const Header = () => {
-  const isLogin = true;
+  const isLogin = false;
   const [value, setValue] = React.useState("");
   const [menu, setMenu] = React.useState(false);
 
   return (
     <header className={styles.header}>
       <div className={styles.separator} />
-      <div className={styles.container}>
+      <div
+        className={
+          "max-w-[1170px] mx-auto flex justify-between items-center px-5"
+        }
+      >
         <div className="">
           <Image
             src={"/Header/Logo.png"}
@@ -52,25 +56,26 @@ const Header = () => {
               />
             )}
           </div>
-          <div className="flex gap-4 ">
-            <Link href={"/favorite"} className="relative">
-              <Heart />
-              <p className="absolute top-[-5px] right-[-3px] bg-red-600 py-[1px] px-[5px] text-white text-xs rounded-full">
-                0
-              </p>
-            </Link>
-            <Link href={"/basket"} className="relative">
-              <ShoppingCart />
-              <p className="absolute top-[-5px] right-[-3px] bg-red-600 py-[1px] px-[5px] text-white text-xs rounded-full">
-                0
-              </p>
-            </Link>
-            {isLogin && (
+          {isLogin && (
+            <div className="flex gap-4 ">
+              <Link href={"/favorite"} className="relative">
+                <Heart />
+                <p className="absolute top-[-5px] right-[-3px] bg-red-600 py-[1px] px-[5px] text-white text-xs rounded-full">
+                  0
+                </p>
+              </Link>
+              <Link href={"/basket"} className="relative">
+                <ShoppingCart />
+                <p className="absolute top-[-5px] right-[-3px] bg-red-600 py-[1px] px-[5px] text-white text-xs rounded-full">
+                  0
+                </p>
+              </Link>
+
               <Link href={"/profile"}>
                 <User />
               </Link>
-            )}
-          </div>
+            </div>
+          )}
         </div>
         <div
           className="md:hidden block ml-6 md:m-0"
