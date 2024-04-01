@@ -4,6 +4,8 @@ import "./globals.scss";
 import QueryProvider from "~/configs/QueryProvider";
 import Header from "~/components/Header";
 import Footer from "~/components/Footer";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import { Providers as Chakra } from "~/configs/ChakraProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,11 +22,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} flex flex-col min-h-screen`}>
-        <QueryProvider>
-          <Header />
-          {children}
-          <Footer />
-        </QueryProvider>
+        <GoogleOAuthProvider clientId={process.env.CLIENT_ID!}>
+          <Chakra>
+            <QueryProvider>
+              <Header />
+              {children}
+              <Footer />
+            </QueryProvider>
+          </Chakra>
+        </GoogleOAuthProvider>
       </body>
     </html>
   );

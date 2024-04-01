@@ -1,9 +1,8 @@
 "use client";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import Image from "next/image";
 import { Icard } from "~/types/cardt.t";
-
+import React from "react";
 export default function Home() {
   const { data, isLoading, isError } = useQuery({
     queryKey: ["sales"],
@@ -25,14 +24,5 @@ export default function Home() {
   if (isError) {
     return <div>Error occurred while fetching data.</div>;
   }
-
-  return (
-    <div className="">
-      {data?.map((el, i) => (
-        <div className="" key={i}>
-          <Image src={el.star} alt="d" width={20} height={20}/>
-        </div>
-      ))}
-    </div>
-  );
+  return <div className=""></div>;
 }

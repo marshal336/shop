@@ -1,11 +1,11 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import Link from "next/link";
 import styles from "./Header.module.scss";
+import DropDown from "./DropDown";
 import { List } from "./list";
 import { Heart, Menu, Search, ShoppingCart, User, X } from "lucide-react";
-import DropDown from "./DropDown";
+import { Link } from "@chakra-ui/react";
 
 const Header = () => {
   const isLogin = false;

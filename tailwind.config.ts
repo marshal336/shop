@@ -10,15 +10,10 @@ const config: Config = {
     screens: {
       xs: "490px",
       sm: "640px",
-
       md: "768px",
-
       xmd: '890px',
-
       lg: "1024px",
-
       xl: "1280px",
-
       "2xl": "1536px",
     },
     extend: {
@@ -27,6 +22,9 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors: {
+        main: '#db4444'
+      }
     },
   },
   plugins: [],
