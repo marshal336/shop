@@ -1,11 +1,14 @@
 .header {
-  @apply w-full relative md:pt-[47px] md:pb-[24px] pt-[25px] pb-[20px];
+  @apply w-full relative md:pt-[47px] md:pb-[24px] pt-[25px] pb-[20px] z-30 bg-white;
+  .container {
+    @apply mx-auto flex justify-between items-center px-5;
+  }
   .separator {
-    @apply w-full h-[1px] bg-black absolute bottom-0;
+    @apply w-full h-[1px] bg-slate-300 absolute bottom-0;
   }
 
   .ul {
-    @apply md:flex justify-between items-center max-w-[360px] flex-1 px-5 hidden;
+    @apply smd:flex justify-between items-center max-w-[360px] flex-1 px-5 hidden;
   }
   .wrappInput {
     @apply relative max-w-[260px] mx-3 flex-1;

@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .main-width {
+    @apply max-w-[1190px] mx-auto;
+  }
+}

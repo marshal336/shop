@@ -1,7 +1,7 @@
 .footer {
   @apply w-full bg-black mt-auto text-white pt-20;
   .container {
-    @apply max-w-[1170px] mx-auto grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 xmd:grid-cols-4 lg:grid-cols-5 gap-y-7 xs:gap-y-5 lg:gap-0 xs:justify-items-start xmd:justify-items-center px-5 pb-14;
+    @apply  mx-auto grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 xmd:grid-cols-4 lg:grid-cols-5 gap-y-7 xs:gap-y-5 lg:gap-0 xs:justify-items-start xmd:justify-items-center px-5 pb-14;
     .one {
       @apply flex flex-col gap-6 max-w-[217px];
       .h1{

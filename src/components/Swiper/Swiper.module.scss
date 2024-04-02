@@ -1,0 +1,33 @@
+.root {
+  @apply overflow-hidden max-w-[300px] h-[200px] xs:max-w-[450px] xs:h-[220px] xmd:max-w-[750px] sm:h-[300px] xmd:h-[380px] lg:max-w-[800px] xlg:max-w-[892px] xlg:h-[420px];
+  .sSwipe {
+    @apply bg-black xmd:mt-10 mt-4 text-white relative xs:p-0 px-2;
+    .wrapper {
+      @apply flex justify-evenly items-center pt-4;
+      .info {
+        @apply flex flex-col;
+        .iphone {
+          @apply flex xlg:gap-6 gap-4 items-center pb-5;
+          .iconA {
+            @apply xlg:text-[50px] sm:text-[38px] xs:text-2xl text-xl;
+          }
+          .p {
+            @apply sm:text-base xs:text-sm text-xs;
+          }
+        }
+        .h1 {
+          @apply xlg:text-[48px] sm:text-[33px] xs:text-2xl text-base pb-6 font-semibold;
+        }
+        .shop {
+          @apply flex xs:gap-4 gap-2 items-center;
+          .link {
+            @apply xs:text-base text-xs;
+          }
+        }
+      }
+    }
+  }
+  .logo {
+    @apply xlg:max-w-[496px] xlg:h-[352px] xmd:max-w-[400px] xmd:h-[300px] sm:max-w-[240px] sm:h-[150px] xs:max-w-[220px] xs:h-[150px] max-w-[150px] h-[60px];
+  }
+}

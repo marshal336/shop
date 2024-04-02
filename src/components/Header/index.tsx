@@ -8,8 +8,8 @@ import Cookie from "js-cookie";
 import DropDown from "./DropDown";
 import Skeleton from "./Skeleton";
 import { List } from "./list";
-import { Heart, Menu, Search, ShoppingCart, User, X } from "lucide-react";
-import { Link } from "@chakra-ui/react";
+import { Heart, MenuIcon, Search, ShoppingCart, User, X } from "lucide-react";
+import { Link, Menu, MenuButton, MenuList } from "@chakra-ui/react";
 import { iUser } from "~/types/user";
 import { useQuery } from "@tanstack/react-query";
 import { TOKEN } from "~/enum/token";
@@ -40,7 +40,7 @@ const Header = () => {
       <div className={styles.separator} />
       <div
         className={
-          "max-w-[1170px] mx-auto flex justify-between items-center px-5"
+          `max-w-[1170px] ${styles.container}`
         }
       >
         <Link href="/" className="">
@@ -98,12 +98,18 @@ const Header = () => {
               </p>
             </Link>
 
-            <div className="relative">
-              <User
-                className="cursor-pointer"
-                onClick={() => setProfile(!profile)}
-              />
-              <DropDown valid={profile} />
+            <div className="relative z-10">
+              <Menu offset={[20, 0]}>
+                <MenuButton>
+                  <User
+                    className="cursor-pointer"
+                    onClick={() => setProfile(!profile)}
+                  />
+                </MenuButton>
+                <MenuList className="w-[254px] h-auto p-4 absolute top-2 right-[-20px] rounded backdrop-blur-[150px] !bg-black/40 !text-white">
+                  <DropDown />
+                </MenuList>
+              </Menu>
             </div>
           </div>
         </div>
@@ -111,7 +117,7 @@ const Header = () => {
           className="md:hidden block ml-6 md:m-0"
           onClick={() => setMenu(!menu)}
         >
-          {menu ? <X /> : <Menu />}
+          {menu ? <X /> : <MenuIcon />}
         </div>
         <MobileMenu items={List} isValid={menu} />
       </div>

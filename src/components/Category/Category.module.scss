@@ -1,0 +1,12 @@
+.root {
+  @apply relative pr-4 xmd:pt-10 pt-4 bg-white;
+  .separator {
+    @apply md:block hidden w-[1px] h-full bg-slate-300 absolute top-0 right-0;
+  }
+  .menu {
+    @apply flex flex-col xmd:gap-4 gap-2 w-[217px];
+    .items {
+      @apply text-base font-normal flex justify-between items-center hover:text-main;
+    }
+  }
+}

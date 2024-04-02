@@ -11,8 +11,10 @@ const config: Config = {
       xs: "490px",
       sm: "640px",
       md: "768px",
-      xmd: '890px',
+      smd: "840px",
+      xmd: "890px",
       lg: "1024px",
+      xlg: "1170px",
       xl: "1280px",
       "2xl": "1536px",
     },
@@ -23,8 +25,8 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       colors: {
-        main: '#db4444'
-      }
+        main: "#db4444",
+      },
     },
   },
   plugins: [],

@@ -1,5 +1,5 @@
 .root {
-  @apply pt-[59px] pb-[80px] max-w-[1300px] mx-auto flex gap-32 items-center;
+  @apply pt-[59px] pb-[80px] flex gap-32 items-center;
   .logo {
     @apply sm:block hidden;
   }

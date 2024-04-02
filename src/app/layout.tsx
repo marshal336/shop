@@ -1,11 +1,16 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.scss";
 import QueryProvider from "~/configs/QueryProvider";
 import Header from "~/components/Header";
 import Footer from "~/components/Footer";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { Providers as Chakra } from "~/configs/ChakraProvider";
+//!css
+import "./globals.scss";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
 const inter = Inter({ subsets: ["latin"] });
 

@@ -15,7 +15,7 @@ const listIconst = [<Facebook />, <Twitter />, <Instagram />, <LinkedinIcon />];
 const Footer = () => {
   return (
     <footer className={styles.footer}>
-      <div className={styles.container}>
+      <div className={`${styles.container} main-width`}>
         <div className={styles.one}>
           <h1 className={styles.h1}>Exclusive</h1>
           <h2 className={styles.h2}>Subscribe</h2>

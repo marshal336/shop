@@ -3,8 +3,9 @@ import React from "react";
 
 const Skeleton = () => {
   return (
-    <div className="w-full pt-11 pb-4">
-      <div className="max-w-[1300px] mx-auto flex justify-between items-center">
+    <div className="w-full pt-[47px] pb-6 relative">
+      <div className="w-full h-[1px] bg-slate-300 absolute bottom-0"/>
+      <div className="main-width mx-auto flex justify-between items-center">
         <Sc height={8} width={160} borderRadius={8} />
         <div className="flex gap-10">
           <Sc height={6} width={50} borderRadius={8} />

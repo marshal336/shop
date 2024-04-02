@@ -6,7 +6,7 @@ import styles from "../Auth.module.scss";
 
 const Login = () => {
   return (
-    <div className={styles.root}>
+    <div className={`${styles.root} main-width`}>
       <div className={styles.logo}>
         <Image src={"/signLogo.png"} alt="logo" width={805} height={781} />
       </div>
