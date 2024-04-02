@@ -1,18 +1,28 @@
 import React from "react";
+import { arr } from "./arr";
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { Arr } from "./types";
 
-const DropDown = ({ items, isValid }: Arr) => {
+const DropDown = ({ valid }: { valid?: boolean }) => {
   return (
-    <motion.ul
-      initial={{ opacity: 0 }}
-      animate={{ opacity: isValid ? 1 : 0 }}
-      className="md:hidden absolute top-[85px] left-0 right-0 bottom-0 min-h-screen z-20 bg-slate-100 overflow-y-scroll pl-3 flex flex-col gap-3 pt-3"
+    <motion.div
+      initial={{
+        opacity: 0,
+      }}
+      animate={{
+        opacity: valid ? 1 : 0,
+      }}
+      className="w-[224px] h-auto p-4 absolute top-8 right-0 z-10 rounded backdrop-blur-[150px] bg-black/40 text-white"
     >
-      {items.map((el, i) => (
-        <li key={i}>{el.title}</li>
-      ))}
-    </motion.ul>
+      <div className="flex flex-col  gap-4">
+        {arr.map(({ logo, title, link }, i) => (
+          <Link key={i} href={link} className="flex gap-5 items-center">
+            <div className="text-3xl">{logo}</div>
+            <p className="text-sm ">{title}</p>
+          </Link>
+        ))}
+      </div>
+    </motion.div>
   );
 };
 

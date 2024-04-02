@@ -1,4 +1,5 @@
-import React from "react";
+import { PATH } from "~/enum/paths";
+
 
 export const List = [
   {
@@ -16,7 +17,7 @@ export const List = [
     title: "Account",
     list: [
       { item: "My Account", link: "/profile" },
-      { item: "Login / Register", link: "/sign-up" },
+      { item: "Login / Register", link: PATH.AUTH_SIGN_UP },
       { item: "Cart", link: "/cart" },
       { item: "Wishlist", link: "/wishlist" },
       { item: "Shop", link: "/shop" },
