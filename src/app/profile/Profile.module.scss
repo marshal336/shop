@@ -1,0 +1,54 @@
+.root {
+  @apply w-full;
+  .container {
+    @apply main-width flex px-5 flex-col xlg:pb-[140px] pb-[100px];
+    .h2 {
+      @apply flex flex-col sm:flex-row gap-6 sm:gap-0 justify-between items-center py-20;
+      .pA {
+        @apply text-sm text-black/50;
+        .span {
+          @apply text-black;
+        }
+      }
+      .pB {
+        @apply text-main;
+      }
+    }
+    .menu {
+      @apply flex justify-between sm:flex-row flex-col;
+      .containerMenu {
+        @apply flex flex-col;
+        .main {
+          @apply flex flex-col pb-4;
+          .h1 {
+            @apply text-base font-medium pb-4 cursor-pointer;
+          }
+          .ul {
+            @apply flex-col pl-9;
+            .li {
+              @apply hover:text-main cursor-pointer text-black/50;
+            }
+          }
+        }
+      }
+    }
+    .Card {
+      @apply flex flex-col xlg:py-10 xlg:px-20 lg:py-5 lg:px-10 py-3 px-5 mx-1;
+      .Headeng {
+        @apply text-sm text-main font-medium;
+      }
+      .inputsA {
+        @apply grid md:grid-cols-2 md:grid-rows-2 grid-cols-1 lg:gap-x-[50px] gap-x-5 lg:gap-y-6 gap-y-3 pb-6;
+      }
+      .inputsB {
+        @apply flex flex-col gap-4 pb-6;
+      }
+      .CardFooter {
+        @apply flex sm:justify-end justify-between gap-3;
+        .Button {
+          @apply sm:text-base text-sm;
+        }
+      }
+    }
+  }
+}

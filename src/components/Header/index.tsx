@@ -18,31 +18,11 @@ const Header = () => {
   const [value, setValue] = React.useState("");
   const [menu, setMenu] = React.useState(false);
   const [profile, setProfile] = React.useState(false);
-  const { status } = useQuery({
-    queryKey: ["user"],
-    queryFn: async () => {
-      try {
-        const token = Cookie.get(TOKEN.ACCESS_TOKEN);
-        const { data } = await axios.get<iUser>(
-          `${TOKEN.GET_USER_PROFILE}=${token}`
-        );
-        return data;
-      } catch (error) {
-        console.log(error);
-      }
-    },
-  });
-  if (status === "pending") {
-    return <Skeleton />;
-  }
+
   return (
     <header className={styles.header}>
       <div className={styles.separator} />
-      <div
-        className={
-          `max-w-[1170px] ${styles.container}`
-        }
-      >
+      <div className={`max-w-[1170px] ${styles.container}`}>
         <Link href="/" className="">
           <Image
             src={"/Header/Logo.png"}
@@ -57,7 +37,9 @@ const Header = () => {
             <li className={styles.li} key={i}>
               <Link
                 href={link}
-                className={`${i === 3 && status === "success" ? "hidden" : ""}`}
+                className={`${
+                  i === 3 /*&& status === "success"*/ ? "hidden" : ""
+                }`}
               >
                 {title}
               </Link>
