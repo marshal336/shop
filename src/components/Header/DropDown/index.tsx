@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import React from "react";
 import { arr } from "./arr";
 import Link from "next/link";

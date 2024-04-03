@@ -1,0 +1,68 @@
+ul.about-breadcrumbs {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 135px;
+  display: inline-flex;
+}
+
+.about-breadcrumbs li + li:before {
+  content: "/";
+  margin: 10px;
+}
+
+.about-breadcrumbs-link {
+  color: #000;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+  opacity: 0.5;
+}
+
+.about-breadcrumbs li {
+  color: #000;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+.about-info {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.about-text{
+  margin-right: 75px;
+}
+
+.about-text h2 {
+  color: rgb(0, 0, 0);
+  font-family: Inter;
+  font-size: 54px;
+  font-weight: 600;
+  line-height: 64px;
+  letter-spacing: 6%;
+  text-align: justify;
+}
+
+.about-paragraph {
+  width: 525px;
+}
+
+.about-paragraph p {
+  margin-top: 25px;
+  color: rgb(0, 0, 0);
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0%;
+  text-align: left;
+}
+
+.about-photo{
+  margin-right: -75px;
+}
