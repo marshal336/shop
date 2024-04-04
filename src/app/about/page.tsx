@@ -4,6 +4,7 @@ import Link from 'next/link';
 
 //styles
 import styles from './About.module.scss'
+import { Dashboard } from './Dashboard';
 
 export const metadata: Metadata = {
   title: "About us",
@@ -52,6 +53,7 @@ export default function AboutPage() {
       </div>
     </div>
     </div>
+    <Dashboard/>
     </>
   );
 }
