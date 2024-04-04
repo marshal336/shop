@@ -27,6 +27,18 @@ const config: Config = {
       colors: {
         main: "#db4444",
       },
+      dropShadow: {
+        custom: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+      },
+      width: {
+        '525': '525px',
+      },
+      margin: {
+        '-75': '-75px',
+      },
+      content: {
+        'custom-link': "/",
+      },
     },
   },
   plugins: [],
