@@ -1,4 +1,3 @@
-import QueryProvider from "~/configs/QueryProvider";
 import Header from "~/components/Header";
 import Footer from "~/components/Footer";
 import type { Metadata } from "next";
@@ -29,11 +28,9 @@ export default function RootLayout({
       <body className={`${inter.className} flex flex-col min-h-screen`}>
         <GoogleOAuthProvider clientId={process.env.CLIENT_ID!}>
           <Chakra>
-            <QueryProvider>
-              <Header />
-              {children}
-              <Footer />
-            </QueryProvider>
+            <Header />
+            {children}
+            <Footer />
           </Chakra>
         </GoogleOAuthProvider>
       </body>
