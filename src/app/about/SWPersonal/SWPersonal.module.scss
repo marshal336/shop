@@ -1,0 +1,29 @@
+.root {
+  @apply overflow-hidden max-w-[1000px] max-h-[700px] xs:max-w-[450px] xs:h-[220px] xmd:max-w-[750px] sm:h-[300px] xmd:h-[380px] lg:max-w-[800px] xlg:max-w-[992px] xlg:h-[570px];
+  .sSwipe {
+    @apply bg-white xmd:mt-10 mt-4 text-black relative xs:p-0 px-2;
+    .wrapper {
+      @apply flex justify-evenly items-center pt-4;
+      .info {
+        @apply flex flex-col mx-3;
+        .text {
+          @apply mt-5;
+          h2 {
+            @apply text-3xl mt-2 font-medium;
+          }
+
+          p {
+            @apply text-base font-normal;
+          }
+        }
+        .socials {
+          @apply mt-3 flex;
+
+          svg {
+            @apply mx-2;
+          }
+        }
+      }
+    }
+  }
+}

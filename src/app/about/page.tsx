@@ -2,9 +2,12 @@ import { Metadata } from "next";
 import Image from 'next/image';
 import Link from 'next/link';
 
+//component
+import { Dashboard } from './Dashboard/Dashboard';
+import SWPersonal from './SWPersonal';
+
 //styles
 import styles from './About.module.scss'
-import { Dashboard } from './Dashboard';
 
 export const metadata: Metadata = {
   title: "About us",
@@ -54,6 +57,7 @@ export default function AboutPage() {
     </div>
     </div>
     <Dashboard/>
+    <SWPersonal/>
     </>
   );
 }

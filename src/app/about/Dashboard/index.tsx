@@ -1,5 +1,5 @@
 //components
-import { Block } from "./Block";
+import { Block } from "../Block";
 
 //styles
 import styles from "./About.module.scss";
