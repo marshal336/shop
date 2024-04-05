@@ -14,7 +14,7 @@ ul.about-breadcrumbs {
 }
 
 .about-info {
-  @apply flex items-center justify-end;
+  @apply flex items-center justify-center;
 
   .about-text {
     @apply mr-40;
@@ -33,57 +33,56 @@ ul.about-breadcrumbs {
   }
 }
 
-.dashboard{
-    @apply mt-36;
-.dashboard-box{
-    @apply flex justify-center justify-evenly;
+.dashboard {
+  @apply mt-36;
+  .dashboard-box {
+    @apply flex  justify-evenly;
 
+    .box-block {
+      @apply flex text-center flex-col items-center border border-gray-400 rounded p-5  transform transition-transform duration-300 ease-in-out cursor-pointer mb-14;
 
-    .box-block{
-        @apply flex text-center flex-col items-center border border-gray-400 rounded p-5  transform transition-transform duration-300 ease-in-out cursor-pointer mb-14;
+      &:hover {
+        @apply bg-red-600 translate-y-[-5px];
 
-        &:hover{
-            @apply bg-red-600 translate-y-[-5px];
+        .circle {
+          @apply bg-red-400;
 
-            .circle{
-                @apply bg-red-400;
+          .circle-second {
+            @apply bg-white;
 
-                .circle-second{
-                    @apply  bg-white;
-
-                    svg{
-                        @apply fill-slate-950;
-                    }
-                }
+            svg {
+              @apply fill-slate-950;
             }
-            
-            .box-info{
-                @apply text-white;
-            }
+          }
         }
-    }
-    .block{
-        @apply text-center flex flex-wrap ;
-    
-    .circle{
-        @apply rounded-full bg-gray-400 w-24 h-24 flex justify-center items-center;
-    
-        .circle-second{
-            @apply rounded-full bg-black w-16 h-16 items-center flex items-center justify-center;
 
-            svg{
-                @apply w-8 h-8 fill-white;
-            }
-        }
-    }
-    }
         .box-info {
-            h2{
-            @apply text-3xl font-bold;
-            }
-            p{
-                @apply text-base font-normal;
-            }
-            }
+          @apply text-white;
         }
+      }
+    }
+    .block {
+      @apply text-center flex flex-wrap;
+
+      .circle {
+        @apply rounded-full bg-gray-400 w-24 h-24 flex justify-center items-center;
+
+        .circle-second {
+          @apply rounded-full bg-black w-16 h-16 items-center flex items-center justify-center;
+
+          svg {
+            @apply w-8 h-8 fill-white;
+          }
+        }
+      }
+    }
+    .box-info {
+      h2 {
+        @apply text-3xl font-bold;
+      }
+      p {
+        @apply text-base font-normal;
+      }
+    }
+  }
 }
