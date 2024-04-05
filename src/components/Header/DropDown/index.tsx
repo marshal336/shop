@@ -8,8 +8,8 @@ const DropDown = () => {
   return (
     <ul className="flex flex-col gap-4 ">
       {arr.map(({ logo, title, link }, i) => (
-        <MenuItem className="!bg-transparent">
-          <Link key={i} href={link} className="flex gap-5 items-center">
+        <MenuItem className="!bg-transparent" key={i}>
+          <Link href={link} className="flex gap-5 items-center">
             <div className="text-3xl">{logo}</div>
             <p className="text-sm ">{title}</p>
           </Link>
