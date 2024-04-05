@@ -1,0 +1,36 @@
+.faq {
+  @apply flex justify-center my-40;
+
+  .box-block {
+    @apply border-none flex text-center flex-col items-center border-none mx-14 cursor-pointer transform transition-transform duration-300 ease-out;
+
+    &:hover {
+      @apply translate-y-[-5px];
+    }
+
+    .block {
+      @apply text-center flex flex-wrap;
+
+      .circle {
+        @apply rounded-full bg-gray-400 w-24 h-24 flex justify-center items-center;
+
+        .circle-second {
+          @apply rounded-full bg-black w-16 h-16 items-center flex items-center justify-center;
+
+          svg {
+            @apply w-8 h-8 fill-white;
+          }
+        }
+      }
+    }
+    .box-info {
+      h2 {
+        @apply text-xl font-bold mt-5;
+
+        p {
+          @apply text-base font-normal mt-3;
+        }
+      }
+    }
+  }
+}

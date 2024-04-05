@@ -3,11 +3,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 //component
-import { Dashboard } from './Dashboard/Dashboard';
+import { Dashboard } from './Dashboard';
 import SWPersonal from './SWPersonal';
 
 //styles
 import styles from './About.module.scss'
+import { FAQ } from './FAQ';
 
 export const metadata: Metadata = {
   title: "About us",
@@ -58,6 +59,7 @@ export default function AboutPage() {
     </div>
     <Dashboard/>
     <SWPersonal/>
+    <FAQ/>
     </>
   );
 }

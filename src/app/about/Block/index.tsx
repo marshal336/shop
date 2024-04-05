@@ -1,7 +1,6 @@
 import { IBlock } from "~/types/block.interface";
-import styles from "./About.module.scss";
 
-export const Block = ({ icon, title, description }: IBlock) => {
+export const Block = ({ icon, title, description,styles }: IBlock) => {
   return (
     <div className={styles["box-block"]}>
       <div className={styles["block"]}>

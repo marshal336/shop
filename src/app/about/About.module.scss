@@ -38,7 +38,10 @@ ul.about-breadcrumbs {
   .dashboard-box {
     @apply flex  justify-evenly;
 
-    .box-block {
+    
+  }
+}
+.box-block {
       @apply flex text-center flex-col items-center border border-gray-400 rounded p-5  transform transition-transform duration-300 ease-in-out cursor-pointer mb-14;
 
       &:hover {
@@ -78,11 +81,11 @@ ul.about-breadcrumbs {
     }
     .box-info {
       h2 {
-        @apply text-3xl font-bold;
+        @apply text-3xl font-bold mt-6;
       }
       p {
-        @apply text-base font-normal;
+        @apply text-base font-normal mt-2;
       }
     }
-  }
-}
+
+    
