@@ -7,7 +7,7 @@ import { Button, Input, Link } from "@chakra-ui/react";
 import { useGoogleLogin } from "@react-oauth/google";
 import { FcGoogle } from "react-icons/fc";
 import { useRouter } from "next/navigation";
-import { TOKEN } from "~/enum/token";
+import { TOKEN } from "~/enums/token";
 
 export const Register = () => {
   const { push } = useRouter();

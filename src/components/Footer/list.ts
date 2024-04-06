@@ -1,4 +1,4 @@
-import { PATH } from "~/enum/paths";
+import { PATH } from "~/enums/paths";
 
 
 export const List = [

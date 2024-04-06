@@ -11,7 +11,7 @@ import { List } from "./list";
 import { Heart, MenuIcon, Search, ShoppingCart, User, X } from "lucide-react";
 import { Link, Menu, MenuButton, MenuList } from "@chakra-ui/react";
 import { iUser } from "~/types/user";
-import { TOKEN } from "~/enum/token";
+import { TOKEN } from "~/enums/token";
 
 const Header = () => {
   const [value, setValue] = React.useState("");
