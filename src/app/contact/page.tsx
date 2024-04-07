@@ -1,5 +1,6 @@
 import styles from "./Contact.module.scss";
 import { DataContact } from "./DataContact";
+import { FormsMessage } from "./FormsMessage";
 
 export default function ContactPage() {
   return (
@@ -12,8 +13,9 @@ export default function ContactPage() {
         </ul>
       </div>
 
-      <div>
+      <div className={styles["contact-main"]}>
         <DataContact />
+        <FormsMessage />
       </div>
     </div>
   );
