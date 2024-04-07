@@ -26,6 +26,10 @@ const config: Config = {
       },
       colors: {
         main: "#db4444",
+        default:'rgb(255, 255, 255);'
+      },
+      boxShadow:{
+        boxContact:'0px 1px 13px 0px rgba(0, 0, 0, 0.05);'
       },
       dropShadow: {
         custom: '0px 4px 4px rgba(0, 0, 0, 0.25)',
