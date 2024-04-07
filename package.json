@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "api:download": "wget http://localhost:5500/swagger-yaml -O ./src/schemes/api/schema.yaml",
+    "api:generate": "orval"
   },
   "dependencies": {
     "@chakra-ui/next-js": "^2.2.0",
@@ -14,6 +16,7 @@
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@react-oauth/google": "^0.12.1",
+    "@reduxjs/toolkit": "^2.2.3",
     "@tanstack/react-query": "^5.28.9",
     "axios": "^1.6.8",
     "framer-motion": "^11.0.24",
@@ -24,6 +27,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.0.1",
+    "react-redux": "^9.1.0",
     "sass": "^1.72.0",
     "swiper": "^11.1.0"
   },
@@ -35,6 +39,7 @@
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.1.4",
+    "orval": "^6.26.0",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"

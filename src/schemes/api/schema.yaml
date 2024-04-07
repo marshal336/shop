@@ -1,0 +1,164 @@
+openapi: 3.0.0
+paths:
+  /api/auth/sign-up:
+    post:
+      operationId: AuthController_register
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAuthDto'
+      responses:
+        '201':
+          description: ''
+      tags:
+        - auth
+  /api/auth/log-in:
+    post:
+      operationId: AuthController_login
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAuthDto'
+      responses:
+        '200':
+          description: ''
+      tags:
+        - auth
+  /api/auth/log-in/access-token:
+    post:
+      operationId: AuthController_getNewToken
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+        - auth
+  /api/auth/log-out:
+    post:
+      operationId: AuthController_logout
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+        - auth
+  /api/auth/google/log-in:
+    get:
+      operationId: AuthController_google
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+        - auth
+        - google
+  /api/auth/log-in/redirect:
+    get:
+      operationId: AuthController_googleRedirect
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+        - auth
+        - google
+  /api/user/profile:
+    get:
+      operationId: UserController_getProfile
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDto'
+      tags:
+        - user
+      security:
+        - bearer: []
+  /api/user/update:
+    put:
+      operationId: UserController_update
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDto'
+      responses:
+        '200':
+          description: ''
+      tags:
+        - user
+      security:
+        - bearer: []
+info:
+  title: Shop
+  description: ''
+  version: 1.0.0
+  contact: {}
+tags: []
+servers: []
+components:
+  securitySchemes:
+    bearer:
+      scheme: bearer
+      bearerFormat: JWT
+      type: http
+  schemas:
+    CreateAuthDto:
+      type: object
+      properties:
+        email:
+          type: string
+          example: test@test.com
+        password:
+          type: string
+          example: '123456'
+        firstName:
+          type: string
+          example: ''
+        lastName:
+          type: string
+          example: ''
+        address:
+          type: string
+          example: ''
+      required:
+        - email
+        - password
+        - firstName
+        - lastName
+        - address
+    UserDto:
+      type: object
+      properties:
+        email:
+          type: string
+          example: test@test.com
+        password:
+          type: string
+          example: '123456'
+        firstName:
+          type: string
+          example: ''
+        lastName:
+          type: string
+          example: ''
+        address:
+          type: string
+          example: ''
+      required:
+        - email
+        - password
+        - firstName
+        - lastName
+        - address

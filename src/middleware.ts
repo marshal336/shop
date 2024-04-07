@@ -1,6 +1,6 @@
 import { NextResponse, NextRequest } from "next/server";
-import { TOKEN } from "./enum/token";
-import { PATH } from "./enum/paths";
+import { TOKEN } from "./enums/token";
+import { PATH } from "./enums/paths";
 
 export function middleware(request: NextRequest, response: NextResponse) {
   const { url, cookies } = request;
