@@ -8,7 +8,7 @@ const tooShortMessage = "minimum length = ${min} characters";
 const tooLongMessage = "maximum length = ${min} characters";
 
 export const schema: yup.ObjectSchema<IFormMessage> = yup.object().shape({
-  fullName: yup.string().email().required("*").max(30, tooLongMessage),
+  fullName: yup.string().required("*").max(30, tooLongMessage),
   email: yup
     .string()
     .email()
