@@ -1,6 +1,5 @@
 "use client";
 import { Card } from "@chakra-ui/react";
-import Image from "next/image";
 import React from "react";
 import { ICardItemProps } from "~/types/cardt.t";
 import { CiHeart } from "react-icons/ci";
@@ -30,7 +29,7 @@ const CardItem = ({
           <CiHeart className={styles.heart} />
           <MdOutlineRemoveRedEye className={styles.eye} />
         </div>
-        <Image src={logo!} alt="logo" width={172} height={152} />
+        <img src={logo!} alt="logo" width={172} height={152} />
         <Link
           href={`/${id}`}
           className={` ${hover ? "bottom-0" : "bottom-[-40px]"} ${styles.Link}`}
@@ -49,7 +48,7 @@ const CardItem = ({
             {Number(id) === 0 ? (
               <>
                 {[...new Array(5)].map((_, i) => (
-                  <Image
+                  <img
                     key={i}
                     src={star!}
                     alt="star"
@@ -62,7 +61,7 @@ const CardItem = ({
               <>
                 {[...new Array(4)].map((_, i) => (
                   <>
-                    <Image
+                    <img
                       key={i}
                       src={star!}
                       alt="star"
@@ -70,7 +69,7 @@ const CardItem = ({
                       height={20}
                     />
                     {i === 3 && (
-                      <Image
+                      <img
                         key={i}
                         src={"/empty-star.svg"}
                         alt="star"
@@ -85,7 +84,7 @@ const CardItem = ({
               <>
                 {[...new Array(4)].map((_, i) => (
                   <>
-                    <Image
+                    <img
                       key={i}
                       src={star!}
                       alt="star"
@@ -93,7 +92,7 @@ const CardItem = ({
                       height={20}
                     />
                     {i === 3 && (
-                      <Image
+                      <img
                         key={i}
                         src={"/star-half-filled.svg"}
                         alt="star"
@@ -107,7 +106,7 @@ const CardItem = ({
             ) : Number(id) === 3 ? (
               <>
                 {[...new Array(5)].map((_, i) => (
-                  <Image
+                  <img
                     key={i}
                     src={star!}
                     alt="star"
