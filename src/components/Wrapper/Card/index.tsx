@@ -45,79 +45,9 @@ const CardItem = ({
         </div>
         <div className={styles.footer}>
           <div className={styles.stars}>
-            {Number(id) === 0 ? (
-              <>
-                {[...new Array(5)].map((_, i) => (
-                  <img
-                    key={i}
-                    src={star!}
-                    alt="star"
-                    width={20}
-                    height={20}
-                  />
-                ))}
-              </>
-            ) : Number(id) === 1 ? (
-              <>
-                {[...new Array(4)].map((_, i) => (
-                  <>
-                    <img
-                      key={i}
-                      src={star!}
-                      alt="star"
-                      width={20}
-                      height={20}
-                    />
-                    {i === 3 && (
-                      <img
-                        key={i}
-                        src={"/empty-star.svg"}
-                        alt="star"
-                        width={20}
-                        height={20}
-                      />
-                    )}
-                  </>
-                ))}
-              </>
-            ) : Number(id) === 2 ? (
-              <>
-                {[...new Array(4)].map((_, i) => (
-                  <>
-                    <img
-                      key={i}
-                      src={star!}
-                      alt="star"
-                      width={20}
-                      height={20}
-                    />
-                    {i === 3 && (
-                      <img
-                        key={i}
-                        src={"/star-half-filled.svg"}
-                        alt="star"
-                        width={20}
-                        height={20}
-                      />
-                    )}
-                  </>
-                ))}
-              </>
-            ) : Number(id) === 3 ? (
-              <>
-                {[...new Array(5)].map((_, i) => (
-                  <img
-                    key={i}
-                    src={star!}
-                    alt="star"
-                    width={20}
-                    height={20}
-                  />
-                ))}
-              </>
-            ) : (
-              <></>
-            )}
+            {[...new Array(5)].map((_, i) => (
+              <img key={i} src={star!} alt="star" width={20} height={20} />
+            ))}
           </div>
           <div className={styles.comments}>{comments}</div>
         </div>
