@@ -6,6 +6,8 @@ import { CiHeart } from "react-icons/ci";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import Link from "next/link";
 import styles from "./Card.module.scss";
+import { FaStar, FaStarHalfAlt } from 'react-icons/fa';
+import { BsStar } from 'react-icons/bs';
 
 const CardItem = ({
   id,
@@ -17,6 +19,8 @@ const CardItem = ({
   logo,
 }: ICardItemProps) => {
   const [hover, setHover] = React.useState(false);
+
+  
   return (
     <Card
       className={styles.Card}
@@ -45,9 +49,19 @@ const CardItem = ({
         </div>
         <div className={styles.footer}>
           <div className={styles.stars}>
-            {[...new Array(5)].map((_, i) => (
-              <img key={i} src={star!} alt="star" width={20} height={20} />
-            ))}
+          {[...new Array(5)].map((_, i) => {
+            const filledStars = star;
+            const hasHalfStar = star % 1 == 0;
+        
+            if (i < filledStars) {
+          return <FaStar key={i} size={20} color="#ffd700" />;
+        } else if (i === filledStars && hasHalfStar) {
+          return <FaStarHalfAlt key={i} size={20} color="#ffd700" enableBackground="grey" />;
+        } else {
+          return <BsStar key={i} size={20} color="#ffd700" />;
+        }
+      })}
+
           </div>
           <div className={styles.comments}>{comments}</div>
         </div>

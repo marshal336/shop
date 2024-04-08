@@ -4,6 +4,6 @@ export interface ICardItemProps {
   title: string;
   prices: string[];
   logo: string
-  star: string;
+  star: number;
   comments: number;
 }
