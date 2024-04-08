@@ -1,0 +1,15 @@
+.root {
+  @apply flex xs:gap-4 gap-2 items-end;
+  .container {
+    @apply flex flex-col;
+    .span {
+      @apply font-medium;
+    }
+    .times {
+      @apply xs:text-4xl text-2xl font-bold;
+    }
+  }
+  .dots {
+    @apply xs:text-5xl text-3xl text-main font-bold;
+  }
+}

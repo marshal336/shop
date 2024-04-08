@@ -1,0 +1,45 @@
+.Card {
+  @apply max-w-[270px] flex flex-col cursor-pointer;
+  .block {
+    @apply p-12 bg-gray-100 mb-4 rounded relative h-[240px] overflow-hidden;
+    .flashSales {
+      @apply absolute top-3 left-3 bg-main text-white py-1 px-3 rounded;
+    }
+    .icons {
+      @apply flex flex-col absolute top-3 right-3 gap-2;
+      .heart {
+        @apply text-2xl p-1 bg-white rounded-full cursor-pointer;
+      }
+      .eye {
+        @apply text-2xl p-1 bg-white rounded-full cursor-pointer;
+      }
+    }
+    .Link {
+      @apply absolute right-0 left-0 bg-black py-2 text-white text-center font-medium cursor-pointer;
+    }
+  }
+  .info {
+    @apply flex flex-col gap-2;
+    .title {
+      @apply font-medium;
+    }
+    .prices {
+      @apply flex gap-3;
+      .priceMain {
+        @apply text-base font-medium text-main;
+      }
+      .twoPrice {
+        @apply text-base font-medium text-gray-500 line-through;
+      }
+    }
+    .footer {
+      @apply flex gap-2;
+      .stars {
+        @apply flex;
+      }
+      .comments {
+        @apply text-gray-500;
+      }
+    }
+  }
+}

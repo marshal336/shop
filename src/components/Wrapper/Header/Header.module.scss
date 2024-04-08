@@ -1,0 +1,15 @@
+.root {
+  @apply flex flex-col px-5;
+  .container {
+    @apply pb-6 flex gap-4 items-center;
+    .separator {
+      @apply bg-main rounded w-5 h-10;
+    }
+    .title {
+      @apply text-main text-base;
+    }
+  }
+  .mainTitle {
+    @apply text-4xl font-semibold;
+  }
+}

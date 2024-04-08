@@ -51,7 +51,7 @@ export const Register = () => {
         </div>
         <div className={styles.logIn}>
           <p>Already have account?</p>
-          <Link href={"/sign-in"}>Log in</Link>
+          <Link href={"/auth/sign-in"}>Log in</Link>
         </div>
       </form>
     </div>
