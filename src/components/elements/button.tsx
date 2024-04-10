@@ -1,9 +1,9 @@
 import { Button } from '@chakra-ui/react'
 import React from 'react'
 
-const CustomButton = () => {
+const CustomButton = ({ title }: { title: string }) => {
   return (
-    <Button colorScheme='red' size='lg'>View All Products</Button>
+    <Button colorScheme='red' size='lg'>{title}</Button>
   )
 }
 

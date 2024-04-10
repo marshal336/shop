@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import WrapperHeader from "./Header";
 import Timer from "./Timer";
@@ -7,38 +8,36 @@ import { CardDto } from "~/types/card";
 import { instance } from "~/api/instance";
 import Category from "./Category";
 import { arr } from "./Category/arr";
+import CustomButton from "../elements/button";
 
 interface IWrapper {
   isValidToTimer?: boolean;
   isValidToCard?: boolean;
   isValidToCategory?: boolean;
+  isValidToButton?: boolean;
   mainTitle: string;
   title: string;
+  data?: CardDto[]
 }
-const getData = async () => {
-  try {
-    const { data } = await instance.get<CardDto[]>("/card");
-    return data;
-  } catch (error) {
 
-  }
-};
 
-const Wrapper = async ({
+const Wrapper = ({
   isValidToTimer = false,
   isValidToCard = true,
   isValidToCategory = false,
+  isValidToButton = false,
   mainTitle,
   title,
+  data
 }: IWrapper) => {
   const date = 4 * 24 * 60 * 60 * 1000;
-  const data = await getData();
 
   return (
     <section className={styles.root}>
-      <div className={styles.header}>
+      <div className={`${styles.header} ${isValidToButton && 'justify-between'}`}>
         <WrapperHeader mainTitle={mainTitle} title={title} />
         {isValidToTimer && <Timer date={date} />}
+        {isValidToButton && <CustomButton title="View All" />}
       </div>
       {isValidToCard && (
         <div className={styles.card}>

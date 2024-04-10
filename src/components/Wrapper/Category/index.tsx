@@ -13,34 +13,43 @@ const Category = () => {
   const navigationPrevRef = React.useRef<HTMLDivElement>(null)
   const navigationNextRef = React.useRef<HTMLDivElement>(null)
   return (
-    <Swiper className={styles.root} slidesPerView={6} modules={[Navigation]}
-
-      navigation={{
-        prevEl: navigationPrevRef.current,
-        nextEl: navigationNextRef.current
-      }}
-    >
-      {arr.map(({ title, logo }, i) => (
-        <SwiperSlide>
-          <Link href={`/${title.toLowerCase()}`} key={i}>
-            <Card className={styles.Card}>
-              <div className={styles.info}>
-                {logo}
-                <p className={styles.p}>{title}</p>
-              </div>
-            </Card>
-          </Link>
-        </SwiperSlide>
-      ))}
+    <div className={styles.root}>
       <div className={styles.arrows}>
-        <div className="p-3 rounded-full bg-gray-300/45 cursor-pointer" ref={navigationPrevRef}>
+        <div className="p-3 rounded-full bg-gray-300/45 cursor-pointer" ref={navigationPrevRef.current?.click()!}>
           <FaArrowLeft />
         </div>
-        <div className='p-3 rounded-full bg-gray-300/45 cursor-pointer' ref={navigationNextRef}>
+        <div className='p-3 rounded-full bg-gray-300/45 cursor-pointer' ref={navigationNextRef.current?.click()!}>
           <FaArrowRight />
         </div>
       </div>
-    </Swiper>
+      <Swiper slidesPerView={6} modules={[Navigation]}
+        navigation={{
+          prevEl: navigationPrevRef.current,
+          nextEl: navigationNextRef.current,
+        }}
+      >
+        {arr.map(({ title, logo }, i) => (
+          <SwiperSlide>
+            <Link href={`/${title.toLowerCase()}`} key={i}>
+              <Card className={styles.Card}>
+                <div className={styles.info}>
+                  {logo}
+                  <p className={styles.p}>{title}</p>
+                </div>
+              </Card>
+            </Link>
+          </SwiperSlide>
+        ))}
+        <div className={'hidden'}>
+          <div className="p-3 rounded-full bg-gray-300/45 cursor-pointer" ref={navigationPrevRef}>
+            <FaArrowLeft />
+          </div>
+          <div className='p-3 rounded-full bg-gray-300/45 cursor-pointer' ref={navigationNextRef}>
+            <FaArrowRight />
+          </div>
+        </div>
+      </Swiper>
+    </div>
   )
 }
 
