@@ -6,4 +6,16 @@
   .main-width {
     @apply max-w-[1190px] mx-auto;
   }
+
+  .separator {
+    @apply w-full h-[1px] bg-slate-300 absolute bottom-0;
+  }
+
+  // .arrows {
+  //   .prevEl {
+  //     @apply
+  //   }
+
+  //   .nextEl {}
+  // }
 }

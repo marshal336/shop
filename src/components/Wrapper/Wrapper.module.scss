@@ -1,4 +1,5 @@
 .root {
+  @apply pb-16 mx-auto;
   .header {
     @apply flex md:gap-20 pb-5 md:items-end gap-10 md:flex-row flex-col px-5;
   }

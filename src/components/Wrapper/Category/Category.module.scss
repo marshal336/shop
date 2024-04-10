@@ -1,0 +1,20 @@
+.root {
+    @apply pt-14 relative;
+
+    .Card {
+        @apply w-[170px] text-center py-6 border border-black/25 hover:bg-main cursor-pointer hover:text-white;
+
+        .info {
+            @apply mx-auto flex flex-col gap-4 text-[56px] items-center;
+
+            .p {
+                @apply text-base;
+            }
+        }
+    }
+
+    .arrows {
+        @apply flex gap-2 absolute top-0 right-0;
+
+    }
+}
