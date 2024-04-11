@@ -7,6 +7,7 @@ import CustomButton from "~/components/elements/button";
 import Music from "~/components/music";
 import { CardDto } from "~/types/card";
 import { getData } from "~/utils/api-link";
+import { FAQ } from "./about/FAQ";
 
 // const getData = async () => {
 //   try {
@@ -74,6 +75,7 @@ export default async function Home() {
           isValidToGrid
         />
       </div>
+      <FAQ/>
     </div>
   );
 }
