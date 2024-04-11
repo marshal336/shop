@@ -36,6 +36,7 @@ export default async function Home() {
             mainTitle="Browse By Category"
             isValidToCard={false}
             isValidToCategory
+            isValidToArowws
           />
         </div>
       </div>
