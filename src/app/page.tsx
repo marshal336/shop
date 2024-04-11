@@ -64,7 +64,15 @@ export default async function Home() {
             data={allData}
           />
         </div>
-        <CustomButton title="View All Products"/>
+        <CustomButton title="View All Products" />
+      </div>
+      <div className="main-width pt-[60px] text-center">
+        <Wrapper
+          title="Our Products"
+          mainTitle="Explore Our Products"
+          isValidToCard={false}
+          isValidToGrid
+        />
       </div>
     </div>
   );

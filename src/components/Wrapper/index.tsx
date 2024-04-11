@@ -10,6 +10,7 @@ import { arr } from "./Category/arr";
 import CustomButton from "../elements/button";
 import Arrows from "../elements/arrows";
 import { Swiper, SwiperSlide } from "swiper/react";
+import Grid from "./Grid";
 
 interface IWrapper {
   isValidToTimer?: boolean;
@@ -18,6 +19,7 @@ interface IWrapper {
   isValidToCategory?: boolean;
   isValidToButton?: boolean;
   isValidToArowws?: boolean
+  isValidToGrid?: boolean
   mainTitle: string;
   title: string;
   style?: string
@@ -32,6 +34,7 @@ const Wrapper = ({
   isValidToButton = false,
   isValidToArowws = false,
   isValidToAllCard = false,
+  isValidToGrid = false,
   mainTitle,
   title,
   data,
@@ -65,6 +68,7 @@ const Wrapper = ({
             </SwiperSlide>
           ))}
         </Swiper>}
+      {isValidToGrid && <Grid />}
       {isValidToCategory && <Category key={arr.length} navigationNextRef={navigationNextRef} navigationPrevRef={navigationPrevRef} />}
     </section>
   );
