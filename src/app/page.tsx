@@ -20,7 +20,7 @@ export default async function Home() {
   // const data = await getData();
   const data = await getData.getData('limit=4')
   const bestData = await getData.getBestData('best=true')
-
+  const allData = await getData.getAllData('sortBy=-id&limit=8')
   return (
     <div className="">
       <section className="flex md:flex-row flex-col items-center justify-center main-width xs:px-5 p-0">
@@ -54,6 +54,17 @@ export default async function Home() {
         <div className="pb-16">
           <Music />
         </div>
+        <div className="main-width pt-[60px] text-center">
+          <Wrapper
+            title="Our Products"
+            mainTitle="Explore Our Products"
+            isValidToCard={false}
+            isValidToArowws
+            isValidToAllCard
+            data={allData}
+          />
+        </div>
+        <CustomButton title="View All Products"/>
       </div>
     </div>
   );

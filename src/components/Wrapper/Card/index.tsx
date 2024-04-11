@@ -27,14 +27,14 @@ const CardItem = ({
       onMouseLeave={() => setHover(false)}
     >
       <div className={styles.block}>
-        {flashSales && <div className={styles.flashSales}>{flashSales}</div>}
+        {flashSales && <div className={`${styles.flashSales} ${flashSales.includes('NEW') && '!bg-[#00ff66]'}`}>{flashSales}</div>}
         <div className={styles.icons}>
           <CiHeart className={styles.heart} />
           <MdOutlineRemoveRedEye className={styles.eye} />
         </div>
         <img src={logo!} alt="logo" width={172} height={152} />
         <Link
-          href={`/${id}`}
+          href={`/${id.toString()}`}
           className={` ${hover ? "bottom-0" : "bottom-[-40px]"} ${styles.Link}`}
         >
           Add To Cart

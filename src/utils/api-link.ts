@@ -22,6 +22,14 @@ class Data {
 
         }
     }
+    async getAllData(url: string) {
+        try {
+            const { data } = await axios.get(`${this.BASE_URL}?${url}`)
+            return url && url.includes('limit') ? data.items as CardDto[] : data as CardDto[]
+        } catch (error) {
+
+        }
+    }
 }
 
 export const getData = new Data

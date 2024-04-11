@@ -1,7 +1,7 @@
 import { CreateCommentDto } from "./comment";
 
 export interface CardDto {
-    id: string
+    id: number
     flashSales: string;
     best?: string
     logo: string;
