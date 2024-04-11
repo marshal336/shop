@@ -1,0 +1,50 @@
+[
+    {
+        "id": "4",
+        "best": true,
+        "title": "The north coat",
+        "logo": "https://i.postimg.cc/xj6hwRwF/chair.png",
+        "prices": [
+            "$260",
+            "$360"
+        ],
+        "star": 5,
+        "comments": 0
+    },
+    {
+        "id": "5",
+        "best": true,
+        "title": "Gucci duffle bag",
+        "logo": "https://i.postimg.cc/xj6hwRwF/chair.png",
+        "prices": [
+            "$960",
+            "$1160"
+        ],
+        "star": 4.5,
+        "comments": 0
+    },
+    {
+        "id": "5",
+        "best": true,
+        "title": "RGB liquid CPU Cooler",
+        "logo": "https://i.postimg.cc/xj6hwRwF/chair.png",
+        "prices": [
+            "$160",
+            "$170"
+        ],
+        "star": 5,
+        "comments": 0
+    },
+    {
+        "id": "5",
+        "best": true,
+        "title": "Small BookSelf",
+        "logo": "https://i.postimg.cc/xj6hwRwF/chair.png",
+        "prices": [
+            "$360",
+            ""
+        ],
+        "star": 5,
+        "comments": 0
+    }
+]

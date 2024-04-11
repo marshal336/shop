@@ -1,22 +1,25 @@
-import Image from "next/image";
 import React from "react";
 import { instance } from "~/api/instance";
 import Category from "~/components/Category";
 import SW from "~/components/Swiper";
 import Wrapper from "~/components/Wrapper";
 import CustomButton from "~/components/elements/button";
+import Music from "~/components/music";
 import { CardDto } from "~/types/card";
+import { getData } from "~/utils/api-link";
 
-const getData = async () => {
-  try {
-    const { data } = await instance.get<CardDto[]>("/card");
-    return data;
-  } catch (error) {
+// const getData = async () => {
+//   try {
+//     const { data } = await instance.get<CardDto[]>("/card");
+//     return data;
+//   } catch (error) {
 
-  }
-};
+//   }
+// };
 export default async function Home() {
-  const data = await getData();
+  // const data = await getData();
+  const data = await getData.getData('limit=4')
+  const bestData = await getData.getBestData('best=true')
 
   return (
     <div className="">
@@ -25,9 +28,9 @@ export default async function Home() {
         <SW />
       </section>
       <div className="main-width pt-[140px] text-center">
-        <Wrapper isValidToTimer={true} mainTitle="Flash Sales" title="Today’" data={data} />
+        <Wrapper isValidToTimer mainTitle="Flash Sales" title="Today’" data={data} />
         <div className="mx-auto pb-[60px] relative ">
-          <CustomButton title="View All Products"/>
+          <CustomButton title="View All Products" />
           <div className="separator" />
         </div>
         <div className="main-width pt-[60px] text-center">
@@ -38,6 +41,18 @@ export default async function Home() {
             isValidToCategory
             isValidToArowws
           />
+        </div>
+        <div className="main-width pt-[60px] text-center">
+          <Wrapper
+            title="This Month"
+            mainTitle="Best Selling Products"
+            isValidToButton
+            data={bestData}
+            style="pt-11"
+          />
+        </div>
+        <div className="pb-16">
+          <Music />
         </div>
       </div>
     </div>

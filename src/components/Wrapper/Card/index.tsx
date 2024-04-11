@@ -27,7 +27,7 @@ const CardItem = ({
       onMouseLeave={() => setHover(false)}
     >
       <div className={styles.block}>
-        <div className={styles.flashSales}>{flashSales}</div>
+        {flashSales && <div className={styles.flashSales}>{flashSales}</div>}
         <div className={styles.icons}>
           <CiHeart className={styles.heart} />
           <MdOutlineRemoveRedEye className={styles.eye} />
