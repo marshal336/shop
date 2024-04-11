@@ -63,7 +63,7 @@ const Wrapper = ({
           slidesPerView={4}
           className={`${styles.card} ${style}`}>
           {data?.map((data, i) => (
-            <SwiperSlide>
+            <SwiperSlide key={i}>
               <CardItem {...data} key={i} />
             </SwiperSlide>
           ))}

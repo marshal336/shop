@@ -14,6 +14,15 @@ class Data {
 
         }
     }
+
+    async getDataById(id:number){
+        try {
+            const {data} = await axios.get(`${this.BASE_URL}/${id}`)
+            return data
+        } catch (error) {
+            console.log(error)
+        }
+    }
     async getBestData(url: string) {
         try {
             const { data } = await axios.get(`${this.BASE_URL}?${url}`)

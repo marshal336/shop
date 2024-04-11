@@ -1,0 +1,60 @@
+.product{
+    @apply flex justify-around my-20;
+
+    .product-info{
+        h1{
+            @apply text-2xl font-semibold;
+        }
+
+        .product-rating{
+            @apply flex; 
+        }
+
+        span{
+            @apply text-gray-400;
+        }
+
+       .product-price{
+        @apply flex;
+
+        h3{
+            @apply text-2xl font-normal text-red-600;
+        }
+
+        h3.product-crossedprice{
+            @apply line-through mx-2 text-gray-400;
+        }
+       }
+       p{
+        @apply text-sm w-[373px] font-normal;
+       }
+       span.product-line{
+        @apply inline-block border w-[400px] border-gray-500;
+       }
+
+       .product-order{
+        @apply flex justify-between items-center;
+
+        .product-counter{
+            @apply flex w-[159px] h-[44px];
+            
+            input{
+                @apply w-[80px] border border-gray-500 border-l-0;
+            }
+
+            button{
+                @apply w-[40px] h-[44px] border border-gray-500 text-2xl;
+            }
+            button.product-button{
+                @apply w-[40px] h-[44px] border border-red-600 bg-red-600 text-white;
+            }
+           }
+           button{
+            @apply w-[165px] h-[44px] text-white bg-red-600;
+           }
+           svg{
+            @apply w-[32px] h-[32px] border-gray-500 border;
+           }
+       }
+    }
+}
