@@ -9,4 +9,5 @@ export interface CardDto {
     star: number;
     title: string;
     comments: CreateCommentDto[]
+    count: number
 }

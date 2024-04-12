@@ -43,8 +43,8 @@ const CardItem = ({
       <div className={styles.info}>
         <Link href={`/product/${id}`} className={styles.title}>{title}</Link>
         <div className={styles.prices}>
-          <p className={styles.priceMain}>{prices![0]}</p>
-          <p className={styles.twoPrice}>{prices![1]}</p>
+          <p className={styles.priceMain}>${prices![0]}</p>
+          <p className={styles.twoPrice}>${prices![1]}</p>
         </div>
         <div className={styles.footer}>
           <div className={styles.stars}>

@@ -10,6 +10,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+import StoreProvider from "~/configs/StoreProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,9 +28,11 @@ export default function RootLayout({
       <body className={`${inter.className} flex flex-col min-h-screen`}>
         <GoogleOAuthProvider clientId={process.env.CLIENT_ID!}>
           <Chakra>
-            <Header />
-            {children}
-            <Footer />
+            <StoreProvider>
+              <Header />
+              {children}
+              <Footer />
+            </StoreProvider>
           </Chakra>
         </GoogleOAuthProvider>
       </body>

@@ -1,25 +1,22 @@
 'use client'
-import { Button, HStack, Input, useNumberInput } from '@chakra-ui/react'
+import { Button, } from '@chakra-ui/react'
 import React from 'react'
 import { CiHeart } from 'react-icons/ci'
+
 
 const sizes = ['xs', 's', 'm', 'l', 'xl']
 const colors = [{ color: '#A0BCDD', title: 'light' }, { color: '#E07575', title: 'red' }]
 
-export const Colors = ({ image }: { image: string }) => {
+interface IColor {
+    count?: number,
+    inc: () => void
+    dec: () => void
+    price: number
+}
+
+export const Colors = ({ count, inc, dec, price }: IColor) => {
     const [border, setBorder] = React.useState(0)
     const [s, setS] = React.useState(0)
-    const { getInputProps, getIncrementButtonProps, getDecrementButtonProps } = useNumberInput({
-        step: 1,
-        defaultValue: 0,
-        min: 0,
-        max: 6,
-    })
-    const inc = getIncrementButtonProps()
-    const dec = getDecrementButtonProps()
-    const input = getInputProps()
-
-
     return (
         <div className="flex flex-col gap-4">
             <div className="flex justify-between items-center max-w-[140px]">
@@ -49,19 +46,18 @@ export const Colors = ({ image }: { image: string }) => {
                 </div>
             </div>
             <div className={'flex justify-between items-center pb-10 '}>
-                <HStack maxW='140px'>
-                    <Button
-                        className='!bg-red-600 !text-white'{...dec}>-</Button>
-                    <Input {...input} readOnly />
-                    <Button className='!bg-red-600 !text-white'{...inc}>+</Button>
-                </HStack>
+                <div className="flex items-center gap-1">
+                    <Button colorScheme='red' onClick={dec} disabled>-</Button>
+                    <div className="w-11 flex justify-center items-center p-2 border border-main rounded-md">{count}</div>
+                    <Button colorScheme='red' onClick={inc} >+</Button>
+                </div>
                 <Button
                     className="!w-[170px] !h-[40px]
                  !bg-red-600 !text-white" onClick={() => console.log({
                         size: sizes[s],
                         color: colors[border].title,
-                        count: input.value,
-                        img: image
+                        count: count,
+                        price: `$${price}`
                     })}>Buy Now</Button>
                 <Button
                     variant={'ghost'}
@@ -83,6 +79,6 @@ export const setColor = () => {
     for (let i = 0; i < 6; i++) {
         randomColor = randomColor + hex[Math.floor(Math.random() * hex.length)]
     }
-    
+
     return randomColor
 }

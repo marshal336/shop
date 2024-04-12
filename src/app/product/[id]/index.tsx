@@ -1,28 +1,53 @@
 'use client'
+import React from 'react'
+import styles from './ProductDetail.module.scss'
 import { GridItem, Grid } from '@chakra-ui/react'
 import { BsStar } from 'react-icons/bs'
 import { FaStar, FaStarHalfAlt } from 'react-icons/fa'
 import { GiReturnArrow } from 'react-icons/gi'
 import { TbTruckDelivery } from 'react-icons/tb'
-import styles from './ProductDetail.module.scss'
-
-import React from 'react'
-import { CardDto } from '~/types/card'
 import { Colors, setColor as Color } from '../utils'
+import { getPost } from '~/redux/reducers/post'
+import { useSelector } from 'react-redux'
+import { RootState, useAppDispatch } from '~/redux/store'
+import main from '../../../main.json'
 
 const images = [{ title: 'one' }, { title: 'two' }, { title: 'three' }, { title: 'four' },]
 
-const FullPost = ({ data }: { data: CardDto }) => {
+const FullPost = ({ id }: { id: number }) => {
+    // const { post: data } = useSelector((state: RootState) => state.post)
+    // const dispatch = useAppDispatch()
+    const data = main[5]
+    const pr = Number(data?.prices[0])
     const [image, setImage] = React.useState(0)
-    // const [color, setColor] = React.useState('');
+    const [price, setPrice] = React.useState(pr)
+    const [count, setCount] = React.useState(1)
 
     // React.useEffect(() => {
-    //     setColor(Color())
-    // }, [])
-    // console.log(color);
+        //     dispatch(getPost(id))
+        // }, [])
+        const inc = () => {
+            setCount(count + 1)
+            setPrice(p => p + pr)
+            if (count === 20) {
+                setCount(count)
+                setPrice(price)
+            }
+        }
+        const dec = () => {
+            setCount(count - 1)
+            setPrice(p => p - pr)
+            if (count === 1) {
+                setCount(1)
+                setPrice(price)
+            }
+        }
 
-    return (
-        <div className={styles.root}>
+        if (!data) {
+            return <h1>loading....</h1>
+        }
+        return (
+            <div className={styles.root}>
             <div className={styles['product']}>
                 <Grid
                     templateRows='repeat(4, 1fr)'
@@ -71,20 +96,18 @@ const FullPost = ({ data }: { data: CardDto }) => {
                                 return <BsStar key={i} size={20} color="#ffd700" />;
                             }
                         })}
-                        <span>{data.comments.length}</span>
+                        <span>{data.comments}</span>
                     </div>
                     <div className={styles['product-price']}>
-                        <h3>${data.prices[0].replace('$', '')}</h3>
+                        <h3>${price}</h3>
                         <h3 className={styles['product-crossedprice']}>{data?.prices[1]}</h3>
                     </div>
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius ut
-                        quisquam obcaecati incidunt ipsum exercitationem debitis reiciendis
-                        quae sint error nemo doloremque adipisci corporis, ad consectetur quia
-                        ipsa fugit totamstyles..
+                        quisquam 
                     </p>
                     <span className={styles['product-line']} />
-                    <Colors image={images[image].title} />
+                    <Colors count={count} inc={inc} dec={dec} price={price} />
                     <div className={`${styles.return}`}>
                         <div className={styles.returnContainer}>
                             <TbTruckDelivery className={styles.track} />
@@ -94,7 +117,7 @@ const FullPost = ({ data }: { data: CardDto }) => {
                             </div>
                         </div>
                         <div className={styles.separator} />
-                        <div className={styles.returnContainer}>
+                        <div className={`${styles.returnContainer} !p-0`}>
                             <GiReturnArrow className={styles.track} />
                             <div className={styles.info}>
                                 <h2>Return Delivery</h2>

@@ -17,8 +17,9 @@ class Data {
 
     async getDataById(id: number) {
         try {
-            const { data } = await axios.get(`${this.BASE_URL}/${id}`)
-            return data as CardDto
+            const { data } = await axios.get<CardDto[]>(`${this.BASE_URL}/?id=${id.toString()}`)
+            
+            return data[0]
         } catch (error) {
             console.log(error)
         }

@@ -1,0 +1,202 @@
+[
+    {
+        "id": 0,
+        "flashSales": "-40%",
+        "title": "HAVIT HV-G92 Gamepad",
+        "logo": "https://i.postimg.cc/6Qxmr1ZT/gamepad.png",
+        "prices": [
+            "120",
+            "160"
+        ],
+        "star": 3,
+        "comments": 0,
+        "count": 0
+    },
+    {
+        "id": 1,
+        "flashSales": "-35%",
+        "title": "AK-900 Wired Keyboard",
+        "logo": "https://i.postimg.cc/bNNDJzFw/keyboard.png",
+        "prices": [
+            "960",
+            "1160"
+        ],
+        "star": 4,
+        "comments": 0,
+        "count": 0
+    },
+    {
+        "id": 2,
+        "flashSales": "-25%",
+        "title": "S-Series Comfort Chair ",
+        "logo": "https://i.postimg.cc/85mcp3Rv/monitor.png",
+        "prices": [
+            "375",
+            "400"
+        ],
+        "star": 5,
+        "comments": 0,
+        "count": 0
+    },
+    {
+        "id": 3,
+        "flashSales": "-30%",
+        "title": "IPS LCD Gaming Monitor",
+        "logo": "https://i.postimg.cc/xj6hwRwF/chair.png",
+        "prices": [
+            "370",
+            "400"
+        ],
+        "star": 3.5,
+        "comments": 0,
+        "count": 0
+    },
+    {
+        "id": 4,
+        "best": "true",
+        "title": "The north coat",
+        "logo": "https://i.postimg.cc/B6Q9x4tV/547953-9-C2-ST-8746-001-082-0000-Light-Gucci-Savoy-medium-duffle-bag-1.png",
+        "prices": [
+            "260",
+            "360"
+        ],
+        "star": 5,
+        "comments": 0,
+        "count": 0
+    },
+    {
+        "id": 5,
+        "best": "true",
+        "title": "Gucci duffle bag",
+        "logo": "https://i.postimg.cc/qMdsvRY0/672462-ZAH9-D-5626-002-100-0000-Light-The-North-Face-x-Gucci-coat-1.png",
+        "prices": [
+            "960",
+            "1160"
+        ],
+        "star": 4.5,
+        "comments": 0
+    },
+    {
+        "id": 6,
+        "best": "true",
+        "title": "RGB liquid CPU Cooler",
+        "logo": "https://i.postimg.cc/G2w2xBvm/Frame-610.png",
+        "prices": [
+            "160",
+            "170"
+        ],
+        "star": 5,
+        "comments": 0,
+        "count": 0
+    },
+    {
+        "id": 7,
+        "best": "true",
+        "title": "Small BookSelf",
+        "logo": "https://i.postimg.cc/sgsb73BC/Frame-612.png",
+        "prices": [
+            "360",
+            ""
+        ],
+        "star": 5,
+        "comments": 0
+    },
+    {
+        "id": 8,
+        "title": "Breed Dry Dog Food",
+        "logo": "https://i.postimg.cc/X7TGFqjH/71-Rdoe-Xxtr-L-1.png",
+        "prices": [
+            "100",
+            ""
+        ],
+        "star": 5,
+        "comments": 0,
+        "count": 0
+    },
+    {
+        "id": 9,
+        "title": "CANON EOS DSLR Camera",
+        "logo": "https://i.postimg.cc/R0fZBLw4/Frame-604.png",
+        "prices": [
+            "360",
+            ""
+        ],
+        "star": 4.5,
+        "comments": 0,
+        "count": 0
+    },
+    {
+        "id": 10,
+        "title": "ASUS FHD Gaming Laptop",
+        "logo": "https://i.postimg.cc/Fzw6N3yX/Frame-604.png",
+        "prices": [
+            "700",
+            ""
+        ],
+        "star": 5,
+        "comments": 0,
+        "count": 0
+    },
+    {
+        "id": 11,
+        "title": "Curology Product Set ",
+        "logo": "https://i.postimg.cc/MKQ6RYrR/curology-j7p-KVQr-TUs-M-unsplash-1.png",
+        "prices": [
+            "500",
+            ""
+        ],
+        "star": 5,
+        "comments": 0,
+        "count": 0
+    },
+    {
+        "id": 12,
+        "flashSales": "NEW",
+        "title": "Kids Electric Car",
+        "logo": "https://i.postimg.cc/PJm86k5s/Frame-608.png",
+        "prices": [
+            "960",
+            ""
+        ],
+        "star": 5,
+        "comments": 0,
+        "count": 0
+    },
+    {
+        "id": 13,
+        "title": "Jr. Zoom Soccer Cleats",
+        "logo": "https://i.postimg.cc/3xy06pRF/Frame-608.png",
+        "prices": [
+            "1160",
+            ""
+        ],
+        "star": 4.5,
+        "comments": 0,
+        "count": 0
+    },
+    {
+        "id": 14,
+        "flashSales": "NEW",
+        "title": "GP11 Shooter USB Gamepad ",
+        "logo": "https://i.postimg.cc/cC9M7S9x/Frame-608-2.png",
+        "prices": [
+            "660",
+            ""
+        ],
+        "star": 5,
+        "comments": 0,
+        "count": 0
+    },
+    {
+        "id": 15,
+        "title": "Quilted Satin Jacket ",
+        "logo": "https://i.postimg.cc/DfPGbLmx/Frame-608-3.png",
+        "prices": [
+            "660",
+            ""
+        ],
+        "star": 5,
+        "comments": 0,
+        "count": 0
+    }
+]
