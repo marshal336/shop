@@ -1,60 +1,83 @@
-.product{
-    @apply flex justify-around my-20;
+.root {
+    @apply w-full;
 
-    .product-info{
-        h1{
-            @apply text-2xl font-semibold;
-        }
+    .product {
+        @apply flex justify-between items-center my-20 main-width;
 
-        .product-rating{
-            @apply flex; 
-        }
+        .Grid {
+            @apply items-center;
 
-        span{
-            @apply text-gray-400;
-        }
-
-       .product-price{
-        @apply flex;
-
-        h3{
-            @apply text-2xl font-normal text-red-600;
-        }
-
-        h3.product-crossedprice{
-            @apply line-through mx-2 text-gray-400;
-        }
-       }
-       p{
-        @apply text-sm w-[373px] font-normal;
-       }
-       span.product-line{
-        @apply inline-block border w-[400px] border-gray-500;
-       }
-
-       .product-order{
-        @apply flex justify-between items-center;
-
-        .product-counter{
-            @apply flex w-[159px] h-[44px];
-            
-            input{
-                @apply w-[80px] border border-gray-500 border-l-0;
+            .mainLogo {
+                @apply cursor-pointer min-w-[446px] min-h-[315px] bg-zinc-700 text-white flex justify-center items-center text-5xl;
             }
 
-            button{
-                @apply w-[40px] h-[44px] border border-gray-500 text-2xl;
+            .gridItemLogo {
+                @apply cursor-pointer min-w-[121px] min-h-[115px]  bg-zinc-700 text-zinc-500 flex justify-center items-center text-5xl;
             }
-            button.product-button{
-                @apply w-[40px] h-[44px] border border-red-600 bg-red-600 text-white;
+        }
+
+        .product-info {
+            @apply flex flex-col gap-4;
+
+            h1 {
+                @apply text-2xl font-semibold;
             }
-           }
-           button{
-            @apply w-[165px] h-[44px] text-white bg-red-600;
-           }
-           svg{
-            @apply w-[32px] h-[32px] border-gray-500 border;
-           }
-       }
+
+            .product-rating {
+                @apply flex;
+            }
+
+            span {
+                @apply text-gray-400 my-2;
+            }
+
+            .product-price {
+                @apply flex;
+
+                h3 {
+                    @apply text-2xl font-normal text-red-600;
+                }
+
+                h3.product-crossedprice {
+                    @apply line-through mx-2 text-gray-400;
+                }
+            }
+
+            p {
+                @apply text-sm w-[373px] font-normal;
+            }
+
+            span.product-line {
+                @apply inline-block border w-[400px] border-gray-500;
+            }
+
+            .return {
+                @apply flex flex-col border border-black/50 rounded p-5 relative;
+
+                .returnContainer {
+                    @apply flex justify-center items-center gap-4 pb-4;
+
+                    .track {
+                        @apply text-4xl;
+                    }
+
+                    .info {
+                        @apply font-medium;
+
+                        h2 {
+                            @apply text-base;
+                        }
+
+                        p {
+                            @apply text-xs;
+                        }
+                    }
+                }
+
+                .separator {
+                    @apply h-[1px] w-full bg-black/50 mb-4 absolute left-0 right-0 top-1/2;
+                }
+            }
+        }
     }
 }

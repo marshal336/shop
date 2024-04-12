@@ -15,10 +15,10 @@ class Data {
         }
     }
 
-    async getDataById(id:number){
+    async getDataById(id: number) {
         try {
-            const {data} = await axios.get(`${this.BASE_URL}/${id}`)
-            return data
+            const { data } = await axios.get(`${this.BASE_URL}/${id}`)
+            return data as CardDto
         } catch (error) {
             console.log(error)
         }
