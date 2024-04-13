@@ -7,47 +7,33 @@ import { FaStar, FaStarHalfAlt } from 'react-icons/fa'
 import { GiReturnArrow } from 'react-icons/gi'
 import { TbTruckDelivery } from 'react-icons/tb'
 import { Colors, setColor as Color } from '../utils'
-import { getPost } from '~/redux/reducers/post'
-import { useSelector } from 'react-redux'
-import { RootState, useAppDispatch } from '~/redux/store'
-import main from '../../../main.json'
+import { CardDto } from '~/types/card'
 
 const images = [{ title: 'one' }, { title: 'two' }, { title: 'three' }, { title: 'four' },]
 
-const FullPost = ({ id }: { id: number }) => {
-    // const { post: data } = useSelector((state: RootState) => state.post)
-    // const dispatch = useAppDispatch()
-    const data = main[5]
-    const pr = Number(data?.prices[0])
+const FullPost = ({ data }: { data: CardDto }) => {
+    const pr = Number(data.prices[0])
     const [image, setImage] = React.useState(0)
     const [price, setPrice] = React.useState(pr)
     const [count, setCount] = React.useState(1)
-
-    // React.useEffect(() => {
-        //     dispatch(getPost(id))
-        // }, [])
-        const inc = () => {
-            setCount(count + 1)
-            setPrice(p => p + pr)
-            if (count === 20) {
-                setCount(count)
-                setPrice(price)
-            }
+    const inc = () => {
+        setCount(count + 1)
+        setPrice(p => p + pr)
+        if (count === 20) {
+            setCount(count)
+            setPrice(price)
         }
-        const dec = () => {
-            setCount(count - 1)
-            setPrice(p => p - pr)
-            if (count === 1) {
-                setCount(1)
-                setPrice(price)
-            }
+    }
+    const dec = () => {
+        setCount(count - 1)
+        setPrice(p => p - pr)
+        if (count === 1) {
+            setCount(1)
+            setPrice(price)
         }
-
-        if (!data) {
-            return <h1>loading....</h1>
-        }
-        return (
-            <div className={styles.root}>
+    }
+    return (
+        <div className={styles.root}>
             <div className={styles['product']}>
                 <Grid
                     templateRows='repeat(4, 1fr)'
@@ -96,7 +82,7 @@ const FullPost = ({ id }: { id: number }) => {
                                 return <BsStar key={i} size={20} color="#ffd700" />;
                             }
                         })}
-                        <span>{data.comments}</span>
+                        <span>{data.comments.length}</span>
                     </div>
                     <div className={styles['product-price']}>
                         <h3>${price}</h3>
@@ -104,7 +90,7 @@ const FullPost = ({ id }: { id: number }) => {
                     </div>
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius ut
-                        quisquam 
+                        quisquam
                     </p>
                     <span className={styles['product-line']} />
                     <Colors count={count} inc={inc} dec={dec} price={price} />

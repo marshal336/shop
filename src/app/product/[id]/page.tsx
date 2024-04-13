@@ -1,3 +1,4 @@
+import { getData } from "~/utils/api-link";
 import FullPost from ".";
 
 export default async function ProductDetail({
@@ -5,7 +6,11 @@ export default async function ProductDetail({
 }: {
   params: { id: number }
 }) {
+  const data = await getData.getDataById(params.id)
+  if (!data) {
+    return <h1 className="text-center">Loading....</h1>
+  }
   return (
-    <FullPost id={params.id} />
+    <FullPost data={data} />
   );
 }
