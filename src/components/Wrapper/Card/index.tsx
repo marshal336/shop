@@ -8,6 +8,8 @@ import styles from "./Card.module.scss";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { BsStar } from "react-icons/bs";
 import { CardDto } from "~/types/card";
+import { useDispatch } from 'react-redux';
+import { getPost } from '~/redux/reducers/post';
 
 const CardItem = ({
   id,
@@ -19,7 +21,13 @@ const CardItem = ({
   logo,
 }: CardDto) => {
   const [hover, setHover] = React.useState(false);
+  const dispatch = useDispatch();
 
+  const handleAddToCart = () => {
+    dispatch(getPost(id));
+  };
+
+  
   return (
     <Card
       className={styles.Card}
@@ -34,8 +42,9 @@ const CardItem = ({
         </div>
         <img src={logo!} alt="logo" width={172} height={152} />
         <Link
-          href={`/${id.toString()}`}
+          href={`/cart`}
           className={` ${hover ? "bottom-0" : "bottom-[-40px]"} ${styles.Link}`}
+          onClick={handleAddToCart}
         >
           Add To Cart
         </Link>

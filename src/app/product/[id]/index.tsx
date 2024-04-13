@@ -54,7 +54,8 @@ const FullPost = ({ data }: { data: CardDto }) => {
                             onClick={() => setImage(i)}
                             rowSpan={1} colSpan={1}
                             rowStart={i + 1} rowEnd={i + 2}
-                            className="mx-auto">
+                            className="mx-auto"
+                            key={i}>
                             <div className={` ${styles.gridItemLogo} 
                              ${image === i && 'border-[5px] border-main'}`}>{title}</div>
                         </GridItem>

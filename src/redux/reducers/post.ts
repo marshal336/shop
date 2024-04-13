@@ -2,6 +2,7 @@ import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { CardDto } from "~/types/card";
 import { getData } from "~/utils/api-link";
 import { IInitialState } from "./initialState";
+import { RootState } from '../store';
 type value = {
     id: number
 }
@@ -42,5 +43,5 @@ const post = createSlice({
     }
 })
 
-
+export const selectPost = (state: RootState) => state.post.post;
 export default post.reducer

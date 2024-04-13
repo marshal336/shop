@@ -2,7 +2,7 @@
     @apply w-full;
 
     .product {
-        @apply flex justify-between items-center my-20 main-width;
+        @apply flex justify-between items-center my-20 max-w-full;
 
         .Grid {
             @apply items-center;

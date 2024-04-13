@@ -72,7 +72,7 @@ const Header = () => {
                 0
               </p>
             </Link>
-            <Link href={"/basket"} className="relative">
+            <Link href={"/cart"} className="relative">
               <ShoppingCart />
               <p className="absolute top-[-5px] right-[-3px] bg-red-600 py-[1px] px-[5px] text-white text-xs rounded-full">
                 0
