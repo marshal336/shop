@@ -8,7 +8,7 @@ type value = {
 }
 
 const initialState: IInitialState = {
-    post: null,
+    post: [],
     status: false,
     totalPrice: 0,
     count: 0,
@@ -29,14 +29,13 @@ const post = createSlice({
         builder.addCase(getPost.pending, (state) => {
             state.status = false
         })
-        builder.addCase(getPost.fulfilled, (state, { payload }) => {
-            if (payload) {
-                state.post = payload
+        builder.addCase(getPost.fulfilled, (state,action) => {
+            if (action.payload) {
+                state.post.push(action.payload)
                 state.status = true;
             }
         })
         builder.addCase(getPost.rejected, (state) => {
-            state.post = null
             state.status = false;
 
         })

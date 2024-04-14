@@ -4,9 +4,10 @@ import Link from 'next/link';
 import styles from './CartPage.module.scss'
 import { useSelector } from 'react-redux';
 import { selectPost } from '~/redux/reducers/post';
+import { useAppSelector } from '~/redux/store';
 
 function CartPage(){
-    const items  = useSelector(selectPost)
+    const items  = useAppSelector(selectPost)
     console.log(items)
     return(
         <div>
@@ -27,12 +28,17 @@ function CartPage(){
                         <li>Quantity</li>
                         <li>Subtotal</li>
                     </ul>
-                    <ul className={styles['cart-header']}>
-                        <li><img src={items?.logo}/></li>
-                        <li>${items?.prices[0]}</li>
-                        <li ><input type="number" value={items?.count} className='w-11 flex justify-center items-center p-2 border'/></li>
-                        <li>${items?.prices[0]}</li>
-                    </ul>
+                    {items.map((item)=>{
+                         return(
+                            <ul className={styles['cart-header']} key={item.id}>
+                            <li><img src={item?.logo}/></li>
+                            <li>${item?.prices[0]}</li>
+                            <li ><input type="number" value={item?.count} className='w-11 flex justify-center items-center p-2 border'/></li>
+                            <li>${item?.prices[0]}</li>
+                        </ul>
+                         )
+                    })}
+                    
                 </div>
 
                 

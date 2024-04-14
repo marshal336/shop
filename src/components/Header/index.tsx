@@ -8,15 +8,20 @@ import Cookie from "js-cookie";
 import DropDown from "./DropDown";
 import Skeleton from "./Skeleton";
 import { List } from "./list";
+import Link from 'next/link'
 import { Heart, MenuIcon, Search, ShoppingCart, User, X } from "lucide-react";
-import { Link, Menu, MenuButton, MenuList } from "@chakra-ui/react";
+import { Menu, MenuButton, MenuList } from "@chakra-ui/react";
 import { iUser } from "~/types/user";
 import { TOKEN } from "~/enums/token";
+import { useSelector } from 'react-redux';
+import { selectPost } from '~/redux/reducers/post';
 
 const Header = () => {
   const [value, setValue] = React.useState("");
   const [menu, setMenu] = React.useState(false);
   const [profile, setProfile] = React.useState(false);
+
+const itemsLength = useSelector(selectPost)
 
   return (
     <header className={styles.header}>
@@ -75,7 +80,7 @@ const Header = () => {
             <Link href={"/cart"} className="relative">
               <ShoppingCart />
               <p className="absolute top-[-5px] right-[-3px] bg-red-600 py-[1px] px-[5px] text-white text-xs rounded-full">
-                0
+                {itemsLength.length}
               </p>
             </Link>
 
