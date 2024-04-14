@@ -1,11 +1,8 @@
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { CardDto } from "~/types/card";
+import { CardDto, IAddCardDto } from "~/types/card";
 import { getData } from "~/utils/api-link";
 import { IInitialState } from "./initialState";
 import { RootState } from '../store';
-type value = {
-    id: number
-}
 
 const initialState: IInitialState = {
     post: [],
@@ -14,33 +11,25 @@ const initialState: IInitialState = {
     count: 0,
 }
 
-export const getPost = createAsyncThunk('getPost', async (id: number) => {
-    const data = await getData.getDataById(id)
-    return data
-
-})
-
-
 const post = createSlice({
     name: 'post',
     initialState,
-    reducers: {},
-    extraReducers: (builder) => {
-        builder.addCase(getPost.pending, (state) => {
-            state.status = false
-        })
-        builder.addCase(getPost.fulfilled, (state,action) => {
-            if (action.payload) {
-                state.post.push(action.payload)
-                state.status = true;
+    reducers: {
+        add: (state, { payload }: PayloadAction<IAddCardDto>) => {
+            const exist = state.post.find(el => el.id === payload.id)
+            if (exist) {
+                state.count++
+                exist.count++
+            } else {
+                state.post.push({...payload, count: 1})
             }
-        })
-        builder.addCase(getPost.rejected, (state) => {
-            state.status = false;
-
-        })
-    }
+            state.totalPrice = state.post.reduce((num, obj) => {
+                return obj.count * +obj.prices + num;
+            }, 0);
+        },
+    },
 })
 
 export const selectPost = (state: RootState) => state.post.post;
+export const { add } = post.actions
 export default post.reducer

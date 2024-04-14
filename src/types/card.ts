@@ -1,13 +1,19 @@
 import { CreateCommentDto } from "./comment";
 
 export interface CardDto {
-    id: number
+    id: number //
     flashSales: string;
     best?: string
-    logo: string;
+    logo: string; //
     prices: string[];
     star: number;
     title: string;
     comments: CreateCommentDto[]
+    count?: number
+}
+export interface IAddCardDto {
+    id: number //
+    logo: string; //
+    prices: string;
     count: number
 }

@@ -1,8 +1,8 @@
-import { CardDto } from "~/types/card";
+import { CardDto, IAddCardDto } from "~/types/card";
 
 
 export interface IInitialState {
-    post: CardDto[],
+    post: IAddCardDto[],
     status: boolean
     totalPrice: number
     count: number

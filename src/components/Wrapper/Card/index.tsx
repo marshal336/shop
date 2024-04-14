@@ -7,9 +7,10 @@ import Link from "next/link";
 import styles from "./Card.module.scss";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { BsStar } from "react-icons/bs";
-import { CardDto } from "~/types/card";
-import { getPost } from '~/redux/reducers/post';
-import { useAppDispatch } from '~/redux/store';
+import { CardDto, IAddCardDto } from "~/types/card";
+import { add } from '~/redux/reducers/post';
+import { useAppDispatch, useAppSelector } from '~/redux/store';
+
 
 const CardItem = ({
   id,
@@ -22,11 +23,16 @@ const CardItem = ({
 }: CardDto) => {
   const [hover, setHover] = React.useState(false);
   const dispatch = useAppDispatch();
-
+  const { count } = useAppSelector(state => state.post)
+  
   const handleAddToCart = () => {
-    dispatch(getPost(id));
-    console.log({ id } as CardDto);
-
+    const post: IAddCardDto = {
+      id,
+      logo,
+      prices: prices[0],
+      count
+    }
+    dispatch(add(post));
   };
 
 

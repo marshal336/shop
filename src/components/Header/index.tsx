@@ -11,7 +11,7 @@ import { List } from "./list";
 import Link from 'next/link'
 import { Heart, MenuIcon, Search, ShoppingCart, User, X } from "lucide-react";
 import { Menu, MenuButton, MenuList } from "@chakra-ui/react";
-import { iUser } from "~/types/user";
+import { iUser } from "~/types/user"; 
 import { TOKEN } from "~/enums/token";
 import { useSelector } from 'react-redux';
 import { selectPost } from '~/redux/reducers/post';
