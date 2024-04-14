@@ -1,11 +1,13 @@
 import { configureStore, } from '@reduxjs/toolkit'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 import post from './reducers/post'
+import favorite from './reducers/favorite'
 
 
 const store = configureStore({
     reducer: {
-        post
+        post,
+        favorite
     }
 })
 

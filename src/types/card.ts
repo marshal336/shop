@@ -17,3 +17,12 @@ export interface IAddCardDto {
     prices: string;
     count: number
 }
+
+export interface IAddFavoriteDto{
+    id: number 
+    flashSales: string;
+    best?: string
+    logo: string 
+    prices: string[];
+    title: string;
+}

@@ -1,4 +1,4 @@
-import { CardDto, IAddCardDto } from "~/types/card";
+import { CardDto, IAddCardDto, IAddFavoriteDto } from "~/types/card";
 
 
 export interface IInitialState {
@@ -6,4 +6,9 @@ export interface IInitialState {
     status: boolean
     totalPrice: number
     count: number
+}
+
+export interface IFavoriteState {
+    favoriteItem: IAddFavoriteDto[],
+    status: boolean
 }

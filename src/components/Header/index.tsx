@@ -11,10 +11,11 @@ import { List } from "./list";
 import Link from 'next/link'
 import { Heart, MenuIcon, Search, ShoppingCart, User, X } from "lucide-react";
 import { Menu, MenuButton, MenuList } from "@chakra-ui/react";
-import { iUser } from "~/types/user"; 
+import { iUser } from "~/types/user";
 import { TOKEN } from "~/enums/token";
 import { useSelector } from 'react-redux';
 import { selectPost } from '~/redux/reducers/post';
+import { favoritesItems } from '~/redux/reducers/favorite';
 
 const Header = () => {
   const [value, setValue] = React.useState("");
@@ -22,7 +23,7 @@ const Header = () => {
   const [profile, setProfile] = React.useState(false);
 
 const itemsLength = useSelector(selectPost)
-
+const favoritesLength = useSelector(favoritesItems)
   return (
     <header className={styles.header}>
       <div className={styles.separator} />
@@ -74,7 +75,7 @@ const itemsLength = useSelector(selectPost)
             <Link href={"/favorite"} className="relative">
               <Heart />
               <p className="absolute top-[-5px] right-[-3px] bg-red-600 py-[1px] px-[5px] text-white text-xs rounded-full">
-                0
+                {favoritesLength.length}
               </p>
             </Link>
             <Link href={"/cart"} className="relative">

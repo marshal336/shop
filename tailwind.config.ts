@@ -26,7 +26,8 @@ const config: Config = {
       },
       colors: {
         main: "#db4444",
-        default:'rgb(255, 255, 255);'
+        default:'rgb(255, 255, 255);',
+        primary:'rgb(245, 245, 245);'
       },
       boxShadow:{
         boxContact:'0px 1px 13px 0px rgba(0, 0, 0, 0.05);'
