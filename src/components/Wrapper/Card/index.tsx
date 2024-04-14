@@ -25,9 +25,11 @@ const CardItem = ({
 
   const handleAddToCart = () => {
     dispatch(getPost(id));
+    console.log({ id } as CardDto);
+
   };
 
-  
+
   return (
     <Card
       className={styles.Card}

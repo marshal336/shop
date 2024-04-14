@@ -1,28 +1,15 @@
 "use client";
 import Image from "next/image";
-import Cookie from "js-cookie";
 import React from "react";
 import styles from "../Auth.module.scss";
 import { Button, Input, Link } from "@chakra-ui/react";
-import { useGoogleLogin } from "@react-oauth/google";
-import { FcGoogle } from "react-icons/fc";
+import { GoogleLogin } from "@react-oauth/google";
+import axios from "axios";
+import { ErrorCatch } from "~/utils/error";
 import { useRouter } from "next/navigation";
-import { TOKEN } from "~/enums/token";
 
 export const Register = () => {
-  const { push } = useRouter();
-  const google = useGoogleLogin({
-    onSuccess: async (user) => {
-      if (user) {
-        Cookie.set(TOKEN.ACCESS_TOKEN, user.access_token, {
-          secure: true,
-        });
-
-        const token = Cookie.get(TOKEN.ACCESS_TOKEN);
-        if (token) push("/");
-      }
-    },
-  });
+  const {push} = useRouter()
   return (
     <div className={`${styles.root} main-width`}>
       <div className={styles.logo}>
@@ -40,14 +27,19 @@ export const Register = () => {
           <Button type="submit" className={styles.firstButton} size={"lg"}>
             Create Account
           </Button>
-          <Button
-            onClick={() => google()}
-            variant={"outline"}
-            size={"lg"}
-            leftIcon={<FcGoogle />}
-          >
-            Sign up with Google
-          </Button>
+          <GoogleLogin
+            onSuccess={async ({ credential }) => {
+              try {
+                const { data } = await axios.post('http://localhost:5500/api/auth/google/log-in', {
+                  token: credential
+                })
+                if(data) push('/')
+                console.log(data);
+              } catch (error) {
+                console.log(ErrorCatch(error));
+            
+              }
+            }} />
         </div>
         <div className={styles.logIn}>
           <p>Already have account?</p>
