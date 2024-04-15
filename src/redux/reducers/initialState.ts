@@ -11,4 +11,5 @@ export interface IInitialState {
 export interface IFavoriteState {
     favoriteItem: IAddFavoriteDto[],
     status: boolean
+    count: number
 }

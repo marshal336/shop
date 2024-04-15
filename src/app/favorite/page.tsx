@@ -13,10 +13,10 @@ import { deleteFavorite, favoritesItems } from "~/redux/reducers/favorite";
 
 function FavoritePage() {
   const items = useSelector(favoritesItems);
-const dispatch = useDispatch()
+  const dispatch = useDispatch()
 
-  const handleRemove=(id:number)=>{
-dispatch(deleteFavorite(id))
+  const handleRemove = (id: number) => {
+    dispatch(deleteFavorite(id))
   }
   return (
     <div>
@@ -34,7 +34,7 @@ dispatch(deleteFavorite(id))
                     {item.flashSales}
                   </span>
                   <span className={styles["favorite-trash"]}>
-                    <IoTrashOutline onClick={()=>handleRemove(item.id)}/>
+                    <IoTrashOutline onClick={() => handleRemove(item.id)} />
                   </span>
                 </div>
                 <div className={styles["favorite-photo"]}>

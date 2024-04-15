@@ -21,7 +21,8 @@ const post = createSlice({
                 state.count++
                 exist.count++
             } else {
-                state.post.push({...payload, count: 1})
+                state.post.push({ ...payload, count: 1 })
+                state.count = 1
             }
             state.totalPrice = state.post.reduce((num, obj) => {
                 return obj.count * +obj.prices + num;

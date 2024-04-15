@@ -2,8 +2,6 @@
 
 import Link from 'next/link';
 import styles from './CartPage.module.scss'
-import { useSelector } from 'react-redux';
-import { selectPost } from '~/redux/reducers/post';
 import { useAppSelector } from '~/redux/store';
 
 function CartPage() {

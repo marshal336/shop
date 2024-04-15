@@ -3,27 +3,22 @@ import Image from "next/image";
 import React from "react";
 import styles from "./Header.module.scss";
 import MobileMenu from "./Mobile";
-import axios from "axios";
-import Cookie from "js-cookie";
 import DropDown from "./DropDown";
-import Skeleton from "./Skeleton";
 import { List } from "./list";
 import Link from 'next/link'
 import { Heart, MenuIcon, Search, ShoppingCart, User, X } from "lucide-react";
 import { Menu, MenuButton, MenuList } from "@chakra-ui/react";
-import { iUser } from "~/types/user";
-import { TOKEN } from "~/enums/token";
-import { useSelector } from 'react-redux';
-import { selectPost } from '~/redux/reducers/post';
-import { favoritesItems } from '~/redux/reducers/favorite';
+import { useAppSelector } from "~/redux/store";
 
 const Header = () => {
   const [value, setValue] = React.useState("");
   const [menu, setMenu] = React.useState(false);
   const [profile, setProfile] = React.useState(false);
 
-const itemsLength = useSelector(selectPost)
-const favoritesLength = useSelector(favoritesItems)
+  const { count: post } = useAppSelector(state => state.post)
+  const { count: fav } = useAppSelector(state => state.favorite)
+
+
   return (
     <header className={styles.header}>
       <div className={styles.separator} />
@@ -42,9 +37,6 @@ const favoritesLength = useSelector(favoritesItems)
             <li className={styles.li} key={i}>
               <Link
                 href={link}
-                className={`${
-                  i === 3 /*&& status === "success"*/ ? "hidden" : ""
-                }`}
               >
                 {title}
               </Link>
@@ -60,9 +52,8 @@ const favoritesLength = useSelector(favoritesItems)
               className={styles.input}
             />
             <Search
-              className={`absolute top-[8px] right-[10px] cursor-pointer ${
-                value && "right-[44px]"
-              }`}
+              className={`absolute top-[8px] right-[10px] cursor-pointer ${value && "right-[44px]"
+                }`}
             />
             {value && (
               <X
@@ -74,15 +65,17 @@ const favoritesLength = useSelector(favoritesItems)
           <div className="flex gap-4 ">
             <Link href={"/favorite"} className="relative">
               <Heart />
-              <p className="absolute top-[-5px] right-[-3px] bg-red-600 py-[1px] px-[5px] text-white text-xs rounded-full">
-                {favoritesLength.length}
-              </p>
+              {fav > 0 &&
+                <p className="absolute top-[-5px] right-[-3px] bg-red-600 py-[1px] px-[5px] text-white text-xs rounded-full">
+                  {fav}
+                </p>}
             </Link>
             <Link href={"/cart"} className="relative">
               <ShoppingCart />
-              <p className="absolute top-[-5px] right-[-3px] bg-red-600 py-[1px] px-[5px] text-white text-xs rounded-full">
-                {itemsLength.length}
-              </p>
+              {post > 0 &&
+                <p className="absolute top-[-5px] right-[-3px] bg-red-600 py-[1px] px-[5px] text-white text-xs rounded-full">
+                  {post}
+                </p>}
             </Link>
 
             <div className="relative z-10">
