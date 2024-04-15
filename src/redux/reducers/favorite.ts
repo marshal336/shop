@@ -6,7 +6,8 @@ import { RootState } from "../store";
 const initialState: IFavoriteState = {
   favoriteItem: [],
   status: false,
-  count: 0
+  count: 0,
+  isActive: false
 };
 
 const favorite = createSlice({
@@ -16,9 +17,9 @@ const favorite = createSlice({
     addFavorite: (state, { payload }: PayloadAction<IAddFavoriteDto>) => {
       const exist = state.favoriteItem.some((item) => item.id === payload.id);
       if (exist) {
-        state.count++
+        return
       } else {
-        state.favoriteItem.push({...payload});
+        state.favoriteItem.push({ ...payload });
         state.count = 1
       }
     },

@@ -4,12 +4,13 @@ import React from "react";
 import styles from "../Auth.module.scss";
 import { Button, Input, Link } from "@chakra-ui/react";
 import { GoogleLogin } from "@react-oauth/google";
-import axios from "axios";
-import { ErrorCatch } from "~/utils/error";
 import { useRouter } from "next/navigation";
+import { stateFromLocalStorage, useAppDispatch, useAppSelector } from "~/redux/store";
+import { getUser } from "~/redux/reducers/user";
 
 export const Register = () => {
-  const {push} = useRouter()
+  const { push } = useRouter()
+  const dispatch = useAppDispatch()
   return (
     <div className={`${styles.root} main-width`}>
       <div className={styles.logo}>
@@ -29,16 +30,8 @@ export const Register = () => {
           </Button>
           <GoogleLogin
             onSuccess={async ({ credential }) => {
-              try {
-                const { data } = await axios.post('http://localhost:5500/api/auth/google/log-in', {
-                  token: credential
-                })
-                if(data) push('/')
-                console.log(data);
-              } catch (error) {
-                console.log(ErrorCatch(error));
-            
-              }
+              await dispatch(getUser({ credential }))
+              push('/')
             }} />
         </div>
         <div className={styles.logIn}>

@@ -4,7 +4,7 @@ import { PATH } from "./enums/paths";
 
 export function middleware(request: NextRequest, response: NextResponse) {
   const { url, cookies } = request;
-  const token = cookies.get(TOKEN.ACCESS_TOKEN)?.value;
+  const token = cookies.get(TOKEN.REFRESH_TOKEN)?.value;
   const isProfilePage = url.includes("/profile");
   const isAuthPage = url.includes("/auth");
 

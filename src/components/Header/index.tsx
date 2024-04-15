@@ -16,9 +16,7 @@ const Header = () => {
   const [profile, setProfile] = React.useState(false);
 
   const { count: post } = useAppSelector(state => state.post)
-  const { count: fav } = useAppSelector(state => state.favorite)
-
-
+  const { favoriteItem } = useAppSelector(state => state.favorite)
   return (
     <header className={styles.header}>
       <div className={styles.separator} />
@@ -65,9 +63,9 @@ const Header = () => {
           <div className="flex gap-4 ">
             <Link href={"/favorite"} className="relative">
               <Heart />
-              {fav > 0 &&
+              {favoriteItem.length > 0 &&
                 <p className="absolute top-[-5px] right-[-3px] bg-red-600 py-[1px] px-[5px] text-white text-xs rounded-full">
-                  {fav}
+                  {favoriteItem.length}
                 </p>}
             </Link>
             <Link href={"/cart"} className="relative">

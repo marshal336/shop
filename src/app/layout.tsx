@@ -27,13 +27,13 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} flex flex-col min-h-screen`}>
         <GoogleOAuthProvider clientId={process.env.CLIENT_ID!}>
-          <Chakra>
             <StoreProvider>
-              <Header />
-              {children}
-              <Footer />
+              <Chakra>
+                <Header />
+                {children}
+                <Footer />
+              </Chakra>
             </StoreProvider>
-          </Chakra>
         </GoogleOAuthProvider>
       </body>
     </html>
