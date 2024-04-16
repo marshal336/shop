@@ -3,15 +3,22 @@ import React from "react";
 import { arr } from "./arr";
 import Link from "next/link";
 import { MenuItem } from "@chakra-ui/react";
-import { logout } from "~/redux/reducers/user";
+import { logout, resetAllInfoOnUser } from "~/redux/reducers/user";
 import { useAppDispatch } from "~/redux/store";
+import { resetAllFavorite } from "~/redux/reducers/favorite";
+import { resetAllPostInfo } from "~/redux/reducers/post";
+import { useRouter } from "next/navigation";
 
 const DropDown = () => {
   const dispatch = useAppDispatch()
-
+  const { refresh } = useRouter()
   const click = (i: number) => {
-    if(i === 4) {
+    if (i === 4) {
       dispatch(logout())
+      dispatch(resetAllFavorite())
+      dispatch(resetAllInfoOnUser())
+      dispatch(resetAllPostInfo())
+      refresh()
     }
   }
   return (

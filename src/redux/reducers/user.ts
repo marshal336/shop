@@ -1,8 +1,5 @@
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { CardDto, IAddCardDto } from "~/types/card";
-import { getData } from "~/utils/api-link";
-import { IInitialState, IUser, IUserState, SignUp } from "./initialState";
-import { RootState } from '../store';
+import { IUser, IUserState, SignUp } from "./initialState";
 import { ErrorCatch } from "~/utils/error";
 import { instance } from "~/api/instance";
 
@@ -31,7 +28,7 @@ export const createUser = createAsyncThunk('createUser', async (value: SignUp) =
     try {
         const { data } = await instance.post<IUser>('/auth/sign-up', value)
         console.log(data);
-        
+
         return data
     } catch (error) {
         const m = ErrorCatch(error)
@@ -62,7 +59,13 @@ export const logout = createAsyncThunk('logout', async () => {
 const user = createSlice({
     name: 'user',
     initialState,
-    reducers: {},
+    reducers: {
+        resetAllInfoOnUser: (state) => {
+            state.isAuth = false
+            state.token = ''
+            state.user = null
+        }
+    },
     extraReducers: (builder) => {
         builder.addCase(getUser.pending, (state) => {
             state.user = null
@@ -116,5 +119,5 @@ const user = createSlice({
         })
     },
 })
-
+export const { resetAllInfoOnUser } = user.actions
 export default user.reducer

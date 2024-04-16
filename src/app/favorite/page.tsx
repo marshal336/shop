@@ -29,8 +29,8 @@ function FavoritePage() {
     dispatch(deleteFavorite(id));
   };
 
-  const handleAddToCard = ({id, logo,prices}:IAddToCard) => {
-    const post:IAddCardDto={id, logo,prices:prices[0] , count:1}
+  const handleAddToCard = ({ id, logo, prices }: IAddToCard) => {
+    const post: IAddCardDto = { id, logo, prices: prices[0], count: 1 }
     dispatch(add(post));
   };
   return (
@@ -58,7 +58,7 @@ function FavoritePage() {
               </div>
               <div
                 className={styles["favorite-link"]}
-                onClick={() => handleAddToCard({id, logo,prices})}>
+                onClick={() => handleAddToCard({ id, logo, prices })}>
                 Add To Cart
               </div>
               <div className={styles["favorite-info"]}>
