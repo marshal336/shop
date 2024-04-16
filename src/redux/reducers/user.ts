@@ -27,7 +27,6 @@ export const getUser = createAsyncThunk('getUser', async ({ credential }: { cred
         return message
     }
 })
-
 export const createUser = createAsyncThunk('createUser', async (value: SignUp) => {
     try {
         const { data } = await instance.post<IUser>('/auth/sign-up', value)
@@ -42,6 +41,16 @@ export const createUser = createAsyncThunk('createUser', async (value: SignUp) =
 export const loginUser = createAsyncThunk('loginUser', async (value: Omit<SignUp, 'firstName'>) => {
     try {
         const { data } = await instance.post<IUser>('/auth/log-in', value)
+        console.log(data);
+        return data
+    } catch (error) {
+        const m = ErrorCatch(error)
+        return m
+    }
+})
+export const logout = createAsyncThunk('logout', async () => {
+    try {
+        const { data } = await instance.post<IUser>('/auth/log-out')
         console.log(data);
         return data
     } catch (error) {
@@ -99,6 +108,11 @@ const user = createSlice({
         builder.addCase(loginUser.rejected, (state) => {
             state.user = null
             state.isAuth = false
+        })
+        builder.addCase(logout.fulfilled, (state) => {
+            state.user = null
+            state.isAuth = false
+            state.token = ''
         })
     },
 })
