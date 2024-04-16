@@ -77,9 +77,9 @@ const CardItem = ({
           </div>
         )}
         <div className={styles.icons}>
-          <CiHeart className={`${styles.icon} bg-white 
-           ${fav && 'bg-main text-white'}
-            ${postInFavOrBasket?.id === id && 'bg-main text-white'}`}
+          <CiHeart className={`${styles.icon}
+           ${fav && 'bg-red-600 text-white'}
+            ${postInFavOrBasket?.id === id && 'bg-red-600 text-white'}`}
             onClick={handleAddFavorite} />
           <MdOutlineRemoveRedEye className={`${styles.icon} bg-white `} />
         </div>
