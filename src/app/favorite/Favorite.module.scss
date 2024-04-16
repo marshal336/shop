@@ -5,10 +5,10 @@
 }
 
 .favorites {
-  @apply flex justify-evenly flex-wrap my-32;
+  @apply flex justify-center flex-wrap mt-6 ;
 
   .favorite-item {
-    @apply w-[270px] h-[250px] mx-7 mb-7;
+    @apply w-[270px] h-[250px] mx-7 mb-24;
 
 .favorite-detail{
     @apply bg-primary;
@@ -16,16 +16,20 @@
 
         @apply flex justify-between mx-2 p-2 items-center;
       .favorite-flash{
-        @apply text-white p-1 text-xs font-normal bg-red-600;
+        @apply text-white p-1 text-xs font-normal bg-red-600 ;
       }
 
       .favorite-trash{
         svg{
-        @apply rounded bg-white p-0 w-[16px] h-[16px];
+        @apply rounded bg-white p-0 w-[16px] h-[16px] cursor-pointer;
         }
       }}
       .favorite-photo {
         @apply flex items-center justify-center;
+
+        img{
+          @apply w-[190px] h-[180px];
+        }
   
   }
     }
@@ -35,8 +39,10 @@
     }
 
     .favorite-info {
+
+      @apply flex flex-col;
       h3 {
-        @apply text-base font-medium mt-4 mb-2;
+        @apply text-base font-medium mt-4 mb-2 text-center;
       }
       p{
         @apply text-sm text-red-600 font-medium;

@@ -17,7 +17,7 @@ const favorite = createSlice({
     addFavorite: (state, { payload }: PayloadAction<IAddFavoriteDto>) => {
       const exist = state.favoriteItem.some((item) => item.id === payload.id);
       if (exist) {
-        return
+        state.favoriteItem = state.favoriteItem.filter((item)=>item.id !==payload.id)
       } else {
         state.favoriteItem.push({ ...payload });
         state.count = 1

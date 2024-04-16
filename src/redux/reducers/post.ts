@@ -1,6 +1,5 @@
-import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { CardDto, IAddCardDto } from "~/types/card";
-import { getData } from "~/utils/api-link";
 import { IInitialState } from "./initialState";
 import { RootState } from '../store';
 
@@ -22,8 +21,8 @@ const post = createSlice({
                 exist.count++
             } else {
                 state.post.push({ ...payload, count: 1 })
-                state.count = 1
             }
+            state.count = state.post.reduce((total, item) => total + item.count, 0);
             state.totalPrice = state.post.reduce((num, obj) => {
                 return obj.count * +obj.prices + num;
             }, 0);

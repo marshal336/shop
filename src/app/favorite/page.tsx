@@ -1,6 +1,10 @@
 "use client";
 //core
 import { useDispatch, useSelector } from "react-redux";
+import Link from "next/link";
+
+//interface
+import { IAddCardDto } from "~/types/card";
 
 //icons
 import { IoTrashOutline } from "react-icons/io5";
@@ -11,13 +15,24 @@ import styles from "./Favorite.module.scss";
 //selector
 import { deleteFavorite, favoritesItems } from "~/redux/reducers/favorite";
 
+//reducer
+import { add } from "~/redux/reducers/post";
+
+//types
+import { IAddToCard } from './types';
+
 function FavoritePage() {
   const items = useSelector(favoritesItems);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const handleRemove = (id: number) => {
-    dispatch(deleteFavorite(id))
-  }
+    dispatch(deleteFavorite(id));
+  };
+
+  const handleAddToCard = ({id, logo,prices}:IAddToCard) => {
+    const post:IAddCardDto={id, logo,prices:prices[0] , count:1}
+    dispatch(add(post));
+  };
   return (
     <div>
       <div className={styles["favorite"]}>
@@ -25,28 +40,34 @@ function FavoritePage() {
       </div>
 
       <div className={styles["favorites"]}>
-        {items.map((item) => {
+        {items.map(({ id, flashSales, logo, title, prices }) => {
           return (
-            <div key={item.id} className={styles["favorite-item"]}>
+            <div key={id} className={styles["favorite-item"]}>
               <div className={styles["favorite-detail"]}>
                 <div className={styles["favorite-menu"]}>
-                  <span className={styles["favorite-flash"]}>
-                    {item.flashSales}
+                  <span className={flashSales ? styles["favorite-flash"] : ""}>
+                    {flashSales}
                   </span>
                   <span className={styles["favorite-trash"]}>
-                    <IoTrashOutline onClick={() => handleRemove(item.id)} />
+                    <IoTrashOutline onClick={() => handleRemove(id)} />
                   </span>
                 </div>
                 <div className={styles["favorite-photo"]}>
-                  <img src={item.logo} alt={item.title} />
+                  <img src={logo} alt={title} />
                 </div>
               </div>
-              <div className={styles["favorite-link"]}>Add To Cart</div>
+              <div
+                className={styles["favorite-link"]}
+                onClick={() => handleAddToCard({id, logo,prices})}>
+                Add To Cart
+              </div>
               <div className={styles["favorite-info"]}>
-                <h3>{item.title}</h3>
+                <Link href={`product/${id}`}>
+                  <h3>{title}</h3>
+                </Link>
                 <p>
-                  ${item.prices[0]}{" "}
-                  <span>{item.prices ? `$${item.prices[1]}` : ""}</span>
+                  ${prices[0]}
+                  <span>{prices[1] ? `$${prices[1]}` : ""}</span>
                 </p>
               </div>
             </div>

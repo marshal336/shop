@@ -55,7 +55,7 @@ const CardItem = ({
     };
     if (isAuth) {
       dispatch(addFavorite(item))
-      setFav(true)
+      setFav(!fav)
     } else {
       push('/auth/sign-up')
     }
