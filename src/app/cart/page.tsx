@@ -3,9 +3,19 @@
 import Link from 'next/link';
 import styles from './CartPage.module.scss'
 import { useAppSelector } from '~/redux/store';
+import { IoTrashOutline } from 'react-icons/io5';
+import { MdCancel } from 'react-icons/md';
+import { useDispatch } from 'react-redux';
+import { deleteItem } from '~/redux/reducers/post';
 
 function CartPage() {
+    const dispatch = useDispatch()
     const { count, post: items, totalPrice } = useAppSelector(state => state.post)
+
+    const handleDeleteFromCard=(id:number)=>{
+        dispatch(deleteItem(id))
+    }
+
     if(!items) {
         return <h1 className='text-center'>Loading....</h1>
     }
@@ -31,7 +41,7 @@ function CartPage() {
                     {items.map((item) => {
                         return (
                             <ul className={styles['cart-header']} key={item.id}>
-                                <li><img src={item.logo} /></li>
+                                <li className={styles['cart-logo']}><span><MdCancel onClick={()=>handleDeleteFromCard(item.id)} /></span><img src={item.logo} /></li>
                                 <li>${item.prices}</li>
                                 <li className='flex justify-center items-center border border-black/30 px-3 rounded-md'>{item.count}</li>
                                 {/* <li>${item.prices[0]}</li> */}
@@ -48,10 +58,7 @@ function CartPage() {
                 <div className={styles['cart-total']}>
                     <h2>Cart Total</h2>
                     <div>
-                        <div className={styles['cart-total-detail']}>
-                            <h3>Subtotal:</h3>
-                            <span>$1750</span>
-                        </div>
+
                         <div className={styles['cart-total-detail']}>
                             <h3>Shipping:</h3>
                             <span>Free</span>
