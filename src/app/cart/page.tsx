@@ -45,13 +45,11 @@ function CartPage() {
                                 <li className={styles['cart-logo']}><span><MdCancel onClick={()=>handleDeleteFromCard(item.id)} /></span><img src={item.logo} /></li>
                                 <li>${item.prices}</li>
                                 <li className='flex justify-center items-center border border-black/30 px-3 rounded-md'>{item.count}</li>
-                                {/* <li>${item.prices[0]}</li> */}
                             </ul>
                         )
                     })}
 
                 </div>
-
 
             </div>
             <div className={styles['cart-sum']}>

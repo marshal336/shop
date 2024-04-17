@@ -59,6 +59,7 @@ const CardItem = ({
       logo,
     };
     if (isAuth) {
+      setFav(!fav)
       dispatch(addFavorite(item))
       if(!fav){
       toast.success(`You added ${item.title} to wishlist!`)
@@ -133,5 +134,4 @@ const CardItem = ({
     </Card>
   );
 };
-// star-half-filled.svg
-export default CardItem;
+export default CardItem

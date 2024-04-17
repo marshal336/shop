@@ -1,14 +1,16 @@
+//components
 import Header from "~/components/Header";
 import Footer from "~/components/Footer";
+
+//react-toastify
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { Providers as Chakra } from "~/configs/ChakraProvider";
-
-//toastify
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
 //!css
 import "./globals.scss";
 import "swiper/css";
@@ -27,7 +29,7 @@ export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>){
   return (
     <html lang="en">
       <body className={`${inter.className} flex flex-col min-h-screen`}>
