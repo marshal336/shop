@@ -4,6 +4,11 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { Providers as Chakra } from "~/configs/ChakraProvider";
+
+//toastify
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 //!css
 import "./globals.scss";
 import "swiper/css";
@@ -26,6 +31,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} flex flex-col min-h-screen`}>
+      <ToastContainer/>
+      
         <GoogleOAuthProvider clientId={process.env.CLIENT_ID!}>
             <StoreProvider>
               <Chakra>

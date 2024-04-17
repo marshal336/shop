@@ -3,14 +3,13 @@
 import Link from 'next/link';
 import styles from './CartPage.module.scss'
 import { useAppSelector } from '~/redux/store';
-import { IoTrashOutline } from 'react-icons/io5';
 import { MdCancel } from 'react-icons/md';
 import { useDispatch } from 'react-redux';
 import { deleteItem } from '~/redux/reducers/post';
 
 function CartPage() {
     const dispatch = useDispatch()
-    const { count, post: items, totalPrice } = useAppSelector(state => state.post)
+    const { post: items, totalPrice } = useAppSelector(state => state.post)
 
     const handleDeleteFromCard=(id:number)=>{
         dispatch(deleteItem(id))
@@ -30,7 +29,9 @@ function CartPage() {
                 </ul>
             </div>
 
-            <div className={styles['cart-table']}>
+            {items.length ? (
+                <>
+                <div className={styles['cart-table']}>
                 <div >
                     <ul className={styles['cart-header']}>
                         <li>Product</li>
@@ -58,7 +59,6 @@ function CartPage() {
                 <div className={styles['cart-total']}>
                     <h2>Cart Total</h2>
                     <div>
-
                         <div className={styles['cart-total-detail']}>
                             <h3>Shipping:</h3>
                             <span>Free</span>
@@ -71,6 +71,9 @@ function CartPage() {
                     </div>
                 </div>
             </div>
+            </>
+            // eslint-disable-next-line react/no-unescaped-entities
+            ): <h2 className='text-center'>You didn't add any product to cart :(</h2>}
         </div>
     )
 }
