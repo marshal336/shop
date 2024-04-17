@@ -1,18 +1,27 @@
 "use client";
+//Core
 import React from "react";
-import styles from "./Card.module.scss";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { toast } from 'react-toastify';
+
+//styles
+import styles from "./Card.module.scss";
 import { Card } from "@chakra-ui/react";
+
+//icons
 import { CiHeart } from "react-icons/ci";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { BsStar } from "react-icons/bs";
+
+//types
 import { CardDto, IAddCardDto, IAddFavoriteDto } from "~/types/card";
+
+//reducer
 import { add } from "~/redux/reducers/post";
 import { useAppDispatch, useAppSelector } from "~/redux/store";
 import { addFavorite } from '~/redux/reducers/favorite';
-import { useRouter } from "next/navigation";
-import { toast } from 'react-toastify';
 
 
 const CardItem = ({
@@ -59,7 +68,6 @@ const CardItem = ({
       logo,
     };
     if (isAuth) {
-      setFav(!fav)
       dispatch(addFavorite(item))
       if(!fav){
       toast.success(`You added ${item.title} to wishlist!`)
@@ -68,7 +76,7 @@ const CardItem = ({
       }
     } else {
       push('/auth/sign-up')
-    }
+    }};
 
   return (
     <Card
@@ -134,4 +142,5 @@ const CardItem = ({
     </Card>
   );
 };
+
 export default CardItem

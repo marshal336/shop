@@ -1,11 +1,16 @@
 "use client";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { FaApple, FaArrowRight } from "react-icons/fa";
+//Core
 import { Link } from "@chakra-ui/react";
-import { Pagination } from "swiper/modules";
 import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
 import { PaginationOptions } from "swiper/types";
+
+//styles
 import styles from "./Swiper.module.scss";
+
+//icons
+import { FaApple, FaArrowRight } from "react-icons/fa";
 
 const SW = () => {
   const pagination: PaginationOptions = {

@@ -1,16 +1,25 @@
 'use client'
+//Core
 import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+//styles
+import styles from "./Wrapper.module.scss";
+
+//components
 import WrapperHeader from "./Header";
 import Timer from "./Timer";
 import CardItem from "./Card";
-import styles from "./Wrapper.module.scss";
-import { CardDto } from "~/types/card";
 import Category from "./Category";
-import { arr } from "./Category/arr";
 import CustomButton from "../elements/button";
 import Arrows from "../elements/arrows";
-import { Swiper, SwiperSlide } from "swiper/react";
 import Grid from "./Grid";
+
+//types
+import { CardDto } from "~/types/card";
+
+//mock
+import { arr } from "./Category/arr";
 
 interface IWrapper {
   isValidToTimer?: boolean;

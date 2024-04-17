@@ -1,12 +1,19 @@
 'use client'
-import { Card } from '@chakra-ui/react'
-import Link from 'next/link'
+//Core
 import React from 'react'
+import Link from 'next/link'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { arr } from './arr'
 import { Navigation } from 'swiper/modules'
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+
+//styles
 import styles from './Category.module.scss'
+import { Card } from '@chakra-ui/react'
+
+//icons
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+
+//mock
+import { arr } from './arr'
 
 interface ICategory {
   navigationPrevRef: React.RefObject<HTMLDivElement>
@@ -24,6 +31,7 @@ const Category = ({ navigationNextRef, navigationPrevRef }: ICategory) => {
         }}
       >
         {arr.map(({ title, logo }, i) => (
+          // eslint-disable-next-line react/jsx-key
           <SwiperSlide>
             <Link href={`/${title.toLowerCase()}`} key={i}>
               <Card className={styles.Card}>

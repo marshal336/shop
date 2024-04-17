@@ -1,4 +1,7 @@
+//Core
 import React from "react";
+
+//styles
 import styles from "./Header.module.scss";
 
 interface IHeader {

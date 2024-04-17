@@ -1,4 +1,10 @@
+//Core
 import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+
+//styles
+import styles from "./Footer.module.scss";
 import {
   StepForward,
   Facebook,
@@ -6,10 +12,10 @@ import {
   Twitter,
   LinkedinIcon,
 } from "lucide-react";
-import Link from "next/link";
+
+//mock
 import { List } from "./list";
-import Image from "next/image";
-import styles from "./Footer.module.scss";
+
 const listIconst = [<Facebook />, <Twitter />, <Instagram />, <LinkedinIcon />];
 
 const Footer = () => {

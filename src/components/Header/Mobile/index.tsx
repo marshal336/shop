@@ -1,4 +1,6 @@
+//Core
 import React from "react";
+//mock
 import { Arr } from "./types";
 
 const MobileMenu = ({ items, isValid }: Arr) => {

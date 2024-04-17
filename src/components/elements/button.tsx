@@ -1,5 +1,7 @@
-import { Button } from '@chakra-ui/react'
+//Core
 import React from 'react'
+//icons
+import { Button } from '@chakra-ui/react'
 
 const CustomButton = ({ title }: { title: string }) => {
   return (

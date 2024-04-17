@@ -1,7 +1,12 @@
 "use client";
+//Core
 import React from "react";
-import { useGetTims } from "../../../hooks/useGetTime";
+
+//styles
 import styles from "./Timer.module.scss";
+
+//hooks
+import { useGetTims } from "../../../hooks/useGetTime";
 
 const Timer = ({ date }: { date: number }) => {
   const [time, setTime] = React.useState(date);

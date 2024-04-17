@@ -1,6 +1,11 @@
 'use client'
-import { Button } from '@chakra-ui/react'
+//Core
 import React from 'react'
+
+//styles
+import { Button } from '@chakra-ui/react'
+
+//components
 import Timer from './Timer';
 
 const Music = () => {

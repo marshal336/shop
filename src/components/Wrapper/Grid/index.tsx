@@ -1,4 +1,7 @@
+//Core
 import React from 'react'
+
+//styles
 import { Grid as GR, GridItem, Link } from '@chakra-ui/react'
 
 const Grid = () => {

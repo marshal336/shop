@@ -1,13 +1,19 @@
 /* eslint-disable react/jsx-key */
+//Core
 import React from "react";
-import { arr } from "./arr";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+//mock
+import { arr } from "./arr";
+//styles
 import { MenuItem } from "@chakra-ui/react";
+
+//reducer
 import { logout, resetAllInfoOnUser } from "~/redux/reducers/user";
-import { useAppDispatch } from "~/redux/store";
 import { resetAllFavorite } from "~/redux/reducers/favorite";
 import { resetAllPostInfo } from "~/redux/reducers/post";
-import { useRouter } from "next/navigation";
+//redux
+import { useAppDispatch } from "~/redux/store";
 
 const DropDown = () => {
   const dispatch = useAppDispatch()

@@ -1,10 +1,15 @@
 "use client";
+//Core
 import React from "react";
-import { arr } from "./arr";
 import Link from "next/link";
+
+//styles
+import styles from "./Category.module.scss";
 import { ChevronRight, MenuIcon } from "lucide-react";
 import { Button } from "@chakra-ui/react";
-import styles from "./Category.module.scss";
+
+//mock
+import { arr } from "./arr";
 
 const Category = () => {
   const [transform, setTransform] = React.useState(false);

@@ -1,13 +1,22 @@
 "use client";
-import Image from "next/image";
+//Core
 import React from "react";
-import styles from "./Header.module.scss";
-import MobileMenu from "./Mobile";
-import DropDown from "./DropDown";
-import { List } from "./list";
+import Image from "next/image";
 import Link from 'next/link'
+
+//styles
+import styles from "./Header.module.scss";
 import { Heart, MenuIcon, Search, ShoppingCart, User, X } from "lucide-react";
 import { Menu, MenuButton, MenuList } from "@chakra-ui/react";
+
+//components
+import MobileMenu from "./Mobile";
+import DropDown from "./DropDown";
+
+//mock
+import { List } from "./list";
+
+//redux
 import { useAppSelector } from "~/redux/store";
 
 const Header = () => {

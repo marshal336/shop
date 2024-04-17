@@ -1,5 +1,8 @@
 'use client'
+//Core
 import React from 'react'
+
+//hooks
 import { useGetTims } from '~/hooks/useGetTime';
 
 const Timer = ({ date }: { date: number }) => {

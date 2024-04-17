@@ -1,4 +1,6 @@
+//Core
 import React from 'react'
+//icons
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
 
 interface IArrows {
