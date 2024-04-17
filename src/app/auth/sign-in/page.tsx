@@ -10,7 +10,7 @@ import { loginUser } from "~/redux/reducers/user";
 
 
 const Login = () => {
-  const { refresh } = useRouter()
+  const { refresh, push } = useRouter()
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
   const dispatch = useAppDispatch()
@@ -23,6 +23,7 @@ const Login = () => {
     if (email.length + password.length === 0) return
     dispatch(loginUser(data))
     refresh()
+    push('/')
   }
   return (
     <div className={`${styles.root} main-width`}>

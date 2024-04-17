@@ -25,10 +25,16 @@ const favorite = createSlice({
     },
     deleteFavorite: (state, { payload }: PayloadAction<number>) => {
       state.favoriteItem = state.favoriteItem.filter(item => item.id !== payload);
+    },
+    resetAllFavorite: (state) => {
+      state.count = 0
+      state.favoriteItem = []
+      state.isActive = false
+      state.status = false
     }
   },
 });
 
 export const favoritesItems = (state: RootState) => state.favorite.favoriteItem;
-export const { addFavorite, deleteFavorite } = favorite.actions;
+export const { addFavorite, deleteFavorite, resetAllFavorite } = favorite.actions;
 export default favorite.reducer;

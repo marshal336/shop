@@ -36,9 +36,15 @@ const post = createSlice({
         0
       );
     },
+    resetAllPostInfo: (state) => {
+      state.count = 0
+      state.post = []
+      state.status = false
+      state.totalPrice = 0
+    }
   },
 });
 
 export const selectPost = (state: RootState) => state.post.post;
-export const { add, deleteItem } = post.actions;
+export const { add, deleteItem,resetAllPostInfo } = post.actions;
 export default post.reducer;

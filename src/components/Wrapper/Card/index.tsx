@@ -24,7 +24,7 @@ const CardItem = ({
   logo,
 }: CardDto) => {
   const { count } = useAppSelector((state) => state.post);
-  const { favoriteItem, isActive } = useAppSelector((state) => state.favorite);
+  const { favoriteItem, } = useAppSelector((state) => state.favorite);
   const { isAuth } = useAppSelector((state) => state.user);
   const { push } = useRouter()
   const [hover, setHover] = React.useState(false);
