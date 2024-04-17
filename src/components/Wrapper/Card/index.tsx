@@ -12,6 +12,7 @@ import { add } from "~/redux/reducers/post";
 import { useAppDispatch, useAppSelector } from "~/redux/store";
 import { addFavorite } from '~/redux/reducers/favorite';
 import { useRouter } from "next/navigation";
+import { toast } from 'react-toastify';
 
 const CardItem = ({
   id,
@@ -37,9 +38,11 @@ const CardItem = ({
       logo,
       prices: prices[0],
       count,
+      title
     };
     if (isAuth) {
       dispatch(add(post));
+      toast.success(`You add ${post.title} in your cart!`)
     } else {
       push('/auth/sign-up')
     }
@@ -54,8 +57,13 @@ const CardItem = ({
       logo,
     };
     if (isAuth) {
-      dispatch(addFavorite(item))
       setFav(!fav)
+      dispatch(addFavorite(item))
+      if(!fav){
+      toast.success(`You added ${item.title} to wishlist!`)
+      }else{
+      toast.info(`You deleted ${item.title} from wishlist`)
+      }
     } else {
       push('/auth/sign-up')
     }

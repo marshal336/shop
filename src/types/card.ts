@@ -16,6 +16,7 @@ export interface IAddCardDto {
     logo: string; //
     prices: string;
     count: number
+    title?: string
 }
 
 export interface IAddFavoriteDto{

@@ -10,7 +10,7 @@ import { deleteItem } from '~/redux/reducers/post';
 
 function CartPage() {
     const dispatch = useDispatch()
-    const { count, post: items, totalPrice } = useAppSelector(state => state.post)
+    const { post: items, totalPrice } = useAppSelector(state => state.post)
 
     const handleDeleteFromCard=(id:number)=>{
         dispatch(deleteItem(id))
@@ -30,7 +30,9 @@ function CartPage() {
                 </ul>
             </div>
 
-            <div className={styles['cart-table']}>
+            {items.length ? (
+                <>
+                <div className={styles['cart-table']}>
                 <div >
                     <ul className={styles['cart-header']}>
                         <li>Product</li>
@@ -44,13 +46,11 @@ function CartPage() {
                                 <li className={styles['cart-logo']}><span><MdCancel onClick={()=>handleDeleteFromCard(item.id)} /></span><img src={item.logo} /></li>
                                 <li>${item.prices}</li>
                                 <li className='flex justify-center items-center border border-black/30 px-3 rounded-md'>{item.count}</li>
-                                {/* <li>${item.prices[0]}</li> */}
                             </ul>
                         )
                     })}
 
                 </div>
-
 
             </div>
             <div className={styles['cart-sum']}>
@@ -70,7 +70,11 @@ function CartPage() {
                         <button>Process to checkout</button>
                     </div>
                 </div>
-            </div>
+            </div></>
+            // eslint-disable-next-line react/no-unescaped-entities
+            ): <h2 className='text-center'>You didn't add any product to cart :( </h2>}
+
+            
         </div>
     )
 }
