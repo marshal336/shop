@@ -11,9 +11,12 @@ import {
   Input,
 } from "@chakra-ui/react";
 import styles from "./Profile.module.scss";
+import { useAppSelector } from "~/redux/store";
 
 const Profile = () => {
   const [idx, setIdx] = React.useState(0);
+  const { user } = useAppSelector(state => state.user)
+  console.log(user);
 
   return (
     <div className={styles.root}>
@@ -23,7 +26,7 @@ const Profile = () => {
             Home / <span className="">My Account</span>
           </p>
           <p>
-            Welcome! <span className={styles.pB}>NAMEUSER</span>
+            Welcome! <span className={styles.pB}>{user.name}</span>
           </p>
         </h2>
         <div className={styles.menu}>

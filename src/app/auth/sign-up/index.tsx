@@ -6,7 +6,7 @@ import styles from "../Auth.module.scss";
 import { Button, Input, Link } from "@chakra-ui/react";
 import { useGoogleLogin } from "@react-oauth/google";
 import { useRouter } from "next/navigation";
-import { useAppDispatch, useAppSelector } from "~/redux/store";
+import { useAppDispatch } from "~/redux/store";
 import { addUserGoogle, createUser } from "~/redux/reducers/user";
 import { ErrorCatch } from "~/utils/error";
 
