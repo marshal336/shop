@@ -8,22 +8,6 @@ const initialState: IUserState = {
     token: '',
     isAuth: false
 }
-
-export const getUser = createAsyncThunk('getUser', async ({ credential }: { credential?: string }) => {
-    try {
-        const { data } = await instance.post<IUser>('/auth/google/log-in', {
-            token: credential
-        }, {
-            headers: {
-                Authorization: 'ddd'
-            }
-        })
-        return data
-    } catch (error) {
-        const message = ErrorCatch(error)
-        return message
-    }
-})
 export const createUser = createAsyncThunk('createUser', async (value: SignUp) => {
     try {
         const { data } = await instance.post<IUser>('/auth/sign-up', value)
@@ -64,24 +48,15 @@ const user = createSlice({
             state.isAuth = false
             state.token = ''
             state.user = null
+        },
+        addUserGoogle: (state, { payload }: PayloadAction<any>) => {
+            if (payload) {
+                state.user = payload,
+                    state.isAuth = true
+            }
         }
     },
     extraReducers: (builder) => {
-        builder.addCase(getUser.pending, (state) => {
-            state.user = null
-            state.isAuth = false
-        })
-        builder.addCase(getUser.fulfilled, (state, { payload }: PayloadAction<IUser>) => {
-            state.user = payload
-            if (payload) {
-                state.token = payload.accessToken
-            }
-            state.isAuth = true
-        })
-        builder.addCase(getUser.rejected, (state) => {
-            state.user = null
-            state.isAuth = false
-        })
         builder.addCase(createUser.pending, (state) => {
             state.user = null
             state.isAuth = false
@@ -119,5 +94,5 @@ const user = createSlice({
         })
     },
 })
-export const { resetAllInfoOnUser } = user.actions
+export const { resetAllInfoOnUser, addUserGoogle } = user.actions
 export default user.reducer

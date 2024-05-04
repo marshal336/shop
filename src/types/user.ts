@@ -1,9 +1,10 @@
-export interface iUser {
-  email: string;
-  given_name: string;
-  id: string;
-  locale: string;
-  name: string;
-  picture: string;
-  verified_email: boolean;
+
+export interface iUserGoogleResponse {
+  id: string
+  email: string
+  verified_email: boolean
+  name: string
+  given_name: string
+  picture: string
+  locale: string
 }

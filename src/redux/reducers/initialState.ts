@@ -28,7 +28,7 @@ export interface IUser {
 export type SignUp = Pick<IUser, 'email' | 'firstName' | 'password'>
 
 export interface IUserState {
-    user: Partial<IUser> | null,
+    user: any | null,
     token: string,
     isAuth: boolean
 }

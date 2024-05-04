@@ -1,18 +1,35 @@
 "use client";
 import Image from "next/image";
 import React from "react";
+import axios from "axios";
 import styles from "../Auth.module.scss";
 import { Button, Input, Link } from "@chakra-ui/react";
-import { GoogleLogin } from "@react-oauth/google";
+import { useGoogleLogin } from "@react-oauth/google";
 import { useRouter } from "next/navigation";
-import { useAppDispatch } from "~/redux/store";
-import { createUser, getUser } from "~/redux/reducers/user";
+import { useAppDispatch, useAppSelector } from "~/redux/store";
+import { addUserGoogle, createUser } from "~/redux/reducers/user";
+import { ErrorCatch } from "~/utils/error";
 
 export const Register = () => {
   const { push, refresh } = useRouter()
   const [name, setName] = React.useState('')
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
+  const login = useGoogleLogin({
+    onSuccess: async (tokenRedponse) => {
+      if (tokenRedponse) {
+        try {
+          'use server'
+          const { data } = await axios.get(`${process.env.NEXT_PUBLIC_OAUTH_LINK}=${tokenRedponse.access_token}`)
+          dispatch(addUserGoogle(data))
+          push('/')
+        } catch (error) {
+          const mess = ErrorCatch(error)
+          console.log(mess)
+        }
+      }
+    }
+  });
   const dispatch = useAppDispatch()
   const submit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -42,11 +59,9 @@ export const Register = () => {
           <Button type="submit" className={styles.firstButton} size={"lg"}>
             Create Account
           </Button>
-          <GoogleLogin
-            onSuccess={async ({ credential }) => {
-              await dispatch(getUser({ credential }))
-              push('/')
-            }} />
+          <Button type="submit" className={''} onClick={() => login()} size={"lg"}>
+            Login with Google
+          </Button>
         </div>
         <div className={styles.logIn}>
           <p>Already have account?</p>
